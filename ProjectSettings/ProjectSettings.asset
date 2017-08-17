@@ -4,14 +4,14 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  productGUID: bbbd8f868542b244b9e46bc80725f00b
+  productGUID: 5eff4c82657a7f642b9773adc072f5b8
   AndroidProfiler: 0
   defaultScreenOrientation: 4
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: Platforming Game
+  productName: PlatformingGame
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -505,14 +505,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: Platforming Game
+  metroPackageName: PlatformingGame
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: Platforming Game
+  metroApplicationDescription: PlatformingGame
   wsaImages: {}
   metroTileShortName: 
   metroCommandLineArgsFile: 
@@ -586,8 +586,8 @@ PlayerSettings:
   cloudServicesEnabled: {}
   facebookSdkVersion: 7.9.4
   apiCompatibilityLevel: 2
-  cloudProjectId: a49225a7-ccbd-43f7-bc52-a23fe79e093c
-  projectName: Platforming Game
+  cloudProjectId: 61255e13-4bb7-4f9b-9733-03325e3d0069
+  projectName: PlatformingGame (1)
   organizationId: ali_ak
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
