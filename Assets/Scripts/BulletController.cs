@@ -41,5 +41,13 @@ public class BulletController : MonoBehaviour
     //{
     //    Destroy(gameObject);
     //}
+    void OnTriggerEnter(Collider bullet)
+    {
+        Debug.Log("Bullet was destroyed");
+        if (bullet.gameObject.tag == "box")
+        {
+            Destroy(bullet.gameObject);           
+        }
+    }
 
 }
