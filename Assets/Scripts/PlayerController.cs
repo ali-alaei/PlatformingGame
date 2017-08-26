@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     private float targetVelocity;
     private float velocity;
     private float velocityChange;
+    [HideInInspector]public float horizontalForce;
     private bool facingRight = true;
 
     void Awake()
@@ -24,12 +25,14 @@ public class PlayerController : MonoBehaviour
     
     void FixedUpdate()
     {
+        //print(transform.position.x);
         targetVelocity = Input.GetAxis("Horizontal");
         targetVelocity *= speed;
         velocity = rigidBody.velocity.x;
         velocityChange = (targetVelocity - velocity);
         velocityChange = Mathf.Clamp(velocityChange, -maxVelocityChange, maxVelocityChange);
-        rigidBody.AddForce(new Vector2(velocityChange * frictionCoefficient, 0));
+        horizontalForce = velocityChange*frictionCoefficient;
+        rigidBody.AddForce(new Vector2(horizontalForce, 0));
 
         if (Input.GetButton("Jump"))
         {
