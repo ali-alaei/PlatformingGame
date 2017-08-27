@@ -4,4 +4,7 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/IntialPlatformerGame/Scenes/initial scene.unity
+    guid: 91b2a32168432a040be1db4b6a8b5fe6
