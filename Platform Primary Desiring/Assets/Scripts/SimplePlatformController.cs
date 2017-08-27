@@ -20,7 +20,10 @@ public class SimplePlatformController : MonoBehaviour {
 	void Awake () {
 		anim = GetComponent<Animator> ();
 		rb2d = GetComponent<Rigidbody2D> ();
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 59b3a42... Revert "Designing"
 	}
 	
 	// Update is called once per frame
@@ -38,14 +41,22 @@ public class SimplePlatformController : MonoBehaviour {
 	void FixedUpdate() {
 		float h = Input.GetAxis ("Horizontal");
 
+<<<<<<< HEAD
 		anim.SetFloat ("Speed", Mathf.Abs (h));
+=======
+		anim.SetFloat ("Speed" , Mathf.Abs(h));
+>>>>>>> parent of 59b3a42... Revert "Designing"
 
 		if (h * rb2d.velocity.x < maxSpeed) {
 			rb2d.AddForce (Vector2.right * h * moveForce);
 		}
 
 		if (Mathf.Abs (rb2d.velocity.x) > maxSpeed) {
+<<<<<<< HEAD
 			rb2d.velocity = new Vector2 (Mathf.Sign (rb2d.velocity.x) * maxSpeed, rb2d.velocity.y);
+=======
+			rb2d.velocity = new Vector2 (Mathf.Sign (rb2d.velocity.x) * maxSpeed , rb2d.velocity.y);
+>>>>>>> parent of 59b3a42... Revert "Designing"
 		}
 
 		if (h > 0 && !facingRight)

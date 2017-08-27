@@ -416,6 +416,7 @@ PlayerSettings:
   intPropertyNames:
   - Standalone::ScriptingBackend
   Standalone::ScriptingBackend: 0
+<<<<<<< HEAD
   boolPropertyNames:
   - Android::VR::enable
   - Metro::VR::enable
@@ -451,6 +452,9 @@ PlayerSettings:
   XboxOne::VR::enable: 0
   iOS::VR::enable: 0
   tvOS::VR::enable: 0
+=======
+  boolPropertyNames: []
+>>>>>>> parent of 59b3a42... Revert "Designing"
   stringPropertyNames:
   - Analytics_ServiceEnabled::Analytics_ServiceEnabled
   - Build_ServiceEnabled::Build_ServiceEnabled
@@ -470,6 +474,7 @@ PlayerSettings:
   Purchasing_ServiceEnabled::Purchasing_ServiceEnabled: False
   UNet_ServiceEnabled::UNet_ServiceEnabled: False
   Unity_Ads_ServiceEnabled::Unity_Ads_ServiceEnabled: False
+<<<<<<< HEAD
   vectorPropertyNames:
   - Android::VR::enabledDevices
   - Metro::VR::enabledDevices
@@ -508,6 +513,9 @@ PlayerSettings:
   XboxOne::VR::enabledDevices: []
   iOS::VR::enabledDevices: []
   tvOS::VR::enabledDevices: []
+=======
+  vectorPropertyNames: []
+>>>>>>> parent of 59b3a42... Revert "Designing"
   cloudProjectId: 
   projectName: 
   organizationId: 
