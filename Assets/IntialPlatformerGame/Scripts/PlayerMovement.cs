@@ -24,17 +24,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        targetVelocity = Input.GetAxis("Horizontal");
+        
         
     }
     void FixedUpdate()
     {
-      
-        targetVelocity *= speed;
-        velocity = rigidBody.velocity.x;
-        velocityChange = (targetVelocity - velocity);
-        velocityChange = Mathf.Clamp(velocityChange, -maxVelocityChange, maxVelocityChange);
-        rigidBody.AddForce(new Vector2(velocityChange * frictionCoefficient, 0));
+        #if !UNITY_ANDROID && !UNITY_IPHONE && !UNITY_BLACKBERRY && !UNITY_WINRT || UNITY_EDITOR
+        targetVelocity = Input.GetAxis("Horizontal");
         if (Input.GetButton("Jump"))
         {
             if (rigidBody.velocity.y == 0f)
@@ -42,11 +38,9 @@ public class PlayerMovement : MonoBehaviour
                 rigidBody.AddForce(new Vector2(0, jumpForce));
             }
         }
-
-        if (targetVelocity > 0 && !facingRight)        
-            Flip();
-        else if (targetVelocity < 0 && facingRight)
-            Flip();
+#endif
+        move();
+        
     }
 
     void Flip()
@@ -56,5 +50,16 @@ public class PlayerMovement : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-    
+    void move()
+    {
+        targetVelocity *= speed;
+        velocity = rigidBody.velocity.x;
+        velocityChange = (targetVelocity - velocity);
+        velocityChange = Mathf.Clamp(velocityChange, -maxVelocityChange, maxVelocityChange);
+        rigidBody.AddForce(new Vector2(velocityChange * frictionCoefficient, 0));
+        if (targetVelocity > 0 && !facingRight)
+            Flip();
+        else if (targetVelocity < 0 && facingRight)
+            Flip();
+    }
 }
