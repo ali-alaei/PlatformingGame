@@ -8,14 +8,13 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 10.0f;
     public float maxVelocityChange = 10.0f;
     public float jumpForce = 500f;
-    public float frictionCoefficient = 7;
-
+    public float frictionCoefficient = 7; 
     private Rigidbody2D rigidBody;
-    private float targetVelocity;
     private float velocity;
     private float velocityChange;
     private bool facingRight = true;
-   
+    float hInput = 0;
+
 
     void Awake()
     {
@@ -29,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        #if !UNITY_ANDROID && !UNITY_IPHONE && !UNITY_BLACKBERRY && !UNITY_WINRT || UNITY_EDITOR
+        #if UNITY_ANDROID && !UNITY_IPHONE && !UNITY_BLACKBERRY && !UNITY_WINRT 
         targetVelocity = Input.GetAxis("Horizontal");
         if (Input.GetButton("Jump"))
         {
@@ -38,8 +37,9 @@ public class PlayerMovement : MonoBehaviour
                 rigidBody.AddForce(new Vector2(0, jumpForce));
             }
         }
+        //move();
 #endif
-        move();
+        Move(hInput);
         
     }
 
@@ -50,7 +50,13 @@ public class PlayerMovement : MonoBehaviour
         theScale.x *= -1;
         transform.localScale = theScale;
     }
-    void move()
+
+    public void StartMoving(float horizonalInput)
+    {
+        hInput = horizonalInput;
+    }
+
+    public void Move(float targetVelocity)
     {
         targetVelocity *= speed;
         velocity = rigidBody.velocity.x;
@@ -62,4 +68,6 @@ public class PlayerMovement : MonoBehaviour
         else if (targetVelocity < 0 && facingRight)
             Flip();
     }
+
+   
 }
