@@ -6,7 +6,11 @@ TextureImporter:
     21300002: enemy1-body
     21300004: enemy1-eye
     21300006: enemy1-eyelid
+<<<<<<< HEAD
   serializedVersion: 4
+=======
+  serializedVersion: 2
+>>>>>>> dac812dc5bb15c51b366175df1fbd206a52b8a47
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0

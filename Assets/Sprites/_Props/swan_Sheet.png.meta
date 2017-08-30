@@ -10,7 +10,11 @@ TextureImporter:
     21300010: Swan_Sheet 1_5
     21300012: Swan_Sheet 1_6
     21300014: Swan_Sheet 1_7
+<<<<<<< HEAD
   serializedVersion: 4
+=======
+  serializedVersion: 2
+>>>>>>> dac812dc5bb15c51b366175df1fbd206a52b8a47
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
