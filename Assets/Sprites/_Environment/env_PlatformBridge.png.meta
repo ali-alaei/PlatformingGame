@@ -3,11 +3,7 @@ guid: 3d59a2915e1d2472caf9771deaedd5fc
 TextureImporter:
   fileIDToRecycleName:
     21300000: env_PlatformBridge
-<<<<<<< HEAD
   serializedVersion: 4
-=======
-  serializedVersion: 2
->>>>>>> dac812dc5bb15c51b366175df1fbd206a52b8a47
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0

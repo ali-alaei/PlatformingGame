@@ -12,11 +12,7 @@ TextureImporter:
     21300014: bazooka
     21300016: rightEye
     21300018: leftEye
-<<<<<<< HEAD
   serializedVersion: 4
-=======
-  serializedVersion: 2
->>>>>>> dac812dc5bb15c51b366175df1fbd206a52b8a47
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
