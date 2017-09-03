@@ -267,8 +267,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 0, y: -9}
+  m_SizeDelta: {x: 61.21, y: 61.213}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &140346681
 MonoBehaviour:
@@ -360,13 +360,13 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1611822487}
-          m_MethodName: 
-          m_Mode: 1
+        - m_Target: {fileID: 1611822491}
+          m_MethodName: startShooting
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
             m_FloatArgument: 0
             m_StringArgument: 
             m_BoolArgument: 0
@@ -377,12 +377,12 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1611822487}
-          m_MethodName: 
-          m_Mode: 1
+        - m_Target: {fileID: 1611822491}
+          m_MethodName: startShooting
+          m_Mode: 3
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -424,8 +424,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 0.10002899, y: 0}
+  m_SizeDelta: {x: 63.18, y: 63.18}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &224730136
 MonoBehaviour:
@@ -831,8 +831,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180.083}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 85.7, y: -178}
-  m_SizeDelta: {x: 64.4, y: 64.4}
+  m_AnchoredPosition: {x: 77.9, y: -235.9}
+  m_SizeDelta: {x: 85, y: 85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &730229073
 MonoBehaviour:
@@ -1758,8 +1758,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 192.4, y: -178}
-  m_SizeDelta: {x: 64.4, y: 64.4}
+  m_AnchoredPosition: {x: 223.5, y: -234.3}
+  m_SizeDelta: {x: 87.4, y: 87.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1150969894
 MonoBehaviour:
@@ -2166,8 +2166,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -74.6, y: 79}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: -69.43, y: 68.67}
+  m_SizeDelta: {x: 60.33, y: 60.33}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1427460592
 MonoBehaviour:
@@ -2277,8 +2277,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 75.1, y: -74.1}
-  m_SizeDelta: {x: 50, y: 50}
+  m_AnchoredPosition: {x: 68.51, y: -65.3}
+  m_SizeDelta: {x: 60.408, y: 60.41}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1431468812
 MonoBehaviour:
@@ -2575,7 +2575,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1611822487}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.9, y: 3.84, z: 0}
   m_LocalScale: {x: 0.3, y: 0.3998068, z: 0.3998068}
   m_Children:
@@ -2777,8 +2777,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1745714148}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.66, y: 0, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.65999985, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

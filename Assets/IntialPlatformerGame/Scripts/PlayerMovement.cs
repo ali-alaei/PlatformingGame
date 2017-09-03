@@ -27,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
         
         
     }
+
     void FixedUpdate()
     {
 #if UNITY_EDITOR
@@ -34,8 +35,8 @@ public class PlayerMovement : MonoBehaviour
         Move(targetVelocity);
         if (Input.GetButton("Jump"))
         {
-            float jumpTmp = 400;
-            jump(jumpTmp);
+            float jumpPower = 400;
+            jump(jumpPower);
         }
 #elif UNITY_ANDROID
         Move(hInput);
