@@ -45,30 +45,27 @@ public class EnemyMovement : MonoBehaviour {
 		if (isInMiddle) {
 			if (transform.position.x < startPoint.transform.position.x) {
 				flipRight ();
-				speed = Mathf.Abs (speed);
-				rigidBody.velocity = new Vector2 (speed, 0);
-				//rigidBody.velocity.x = speed;
 			} else if (transform.position.x > endPoint.transform.position.x) {
 				flipLeft ();
-				speed = -1 * Mathf.Abs (speed);
-				rigidBody.velocity = new Vector2 (speed, 0);
-				//rigidBody.velocity.x = speed;
 			}
+			rigidBody.velocity = new Vector2 (speed, 0);
 		}
 
 		//transform.Translate (new Vector3 (speed, 0, 0) * Time.deltaTime);
 	}
-	void flipRight()
+	public void flipRight()
 	{
 		Vector3 scale = transform.localScale;
 		scale.x = -1*Mathf.Abs(scale.x);
 		transform.localScale = scale;
+		speed = Mathf.Abs (speed);
 	}
-	void flipLeft()
+	public void flipLeft()
 	{
 		Vector3 scale = transform.localScale;
 		scale.x = Mathf.Abs(scale.x);
 		transform.localScale = scale;
+		speed = -1 * Mathf.Abs (speed);
 	}
 
 }

@@ -7,27 +7,60 @@ public class EnemyShooting : MonoBehaviour {
 	private Transform firePoint;
 	[SerializeField]
 	private GameObject bullet;
-
+	public float distance = 50;
 	private float shootDelay=2f;
+	GameObject Player;
+	EnemyMovement enemyMove;
+	void Awake()
+	{
+		Player = GameObject.FindGameObjectWithTag("Player");
 
-	private bool isShooting =true;
-
+	}
+	void Start()
+	{
+		enemyMove = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyMovement> ();
+	}
 	void Update () {
-		if (isShooting)
+		if (canSeePlayer ()) {
+			StartCoroutine (shootBullet ());
+		} else {
+			StopCoroutine (shootBullet ());
+		}
+	}
+	IEnumerator shootBullet()
+	{
+		if (transform.localScale.x<0)
 		{
-			if (transform.localScale.x<0)
+			Vector2 firstscale = bullet.transform.localScale;
+			Vector2 scale = bullet.transform.localScale;
+			scale.x *= -1;
+			bullet.transform.localScale = scale;
+			Instantiate(bullet, firePoint.position, Quaternion.identity);
+			bullet.transform.localScale = firstscale;
+		}
+		else if (transform.localScale.x>0)
+		{
+			Instantiate (bullet, firePoint.position, Quaternion.identity );
+		}
+		yield return new WaitForSeconds (shootDelay);
+	}
+	private bool canSeePlayer()
+	{
+		float forward = transform.position.x + distance;
+		float back = transform.position.x - distance;
+
+		if (Player.transform.position.x < forward && Player.transform.position.x > back) {
+			if(enemyMove.speed > 0 && Player.transform.position.x < transform.position.x)
 			{
-				Vector2 firstscale = bullet.transform.localScale;
-				Vector2 scale = bullet.transform.localScale;
-				scale.x *= -1;
-				bullet.transform.localScale = scale;
-				Instantiate(bullet, firePoint.position, Quaternion.identity);
-				bullet.transform.localScale = firstscale;
+				enemyMove.flipLeft ();
 			}
-			else if (transform.localScale.x>0)
+			else if(enemyMove.speed < 0 && Player.transform.position.x > transform.position.x)
 			{
-				Instantiate (bullet, firePoint.position, Quaternion.identity );
+				enemyMove.flipRight ();
 			}
+			return true;
+		} else {
+			return false;
 		}
 	}
 
