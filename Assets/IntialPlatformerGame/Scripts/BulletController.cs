@@ -21,7 +21,6 @@ public class BulletController : MonoBehaviour
 
     public void Initialize()
     {
-
         myRigidBody = GetComponent<Rigidbody2D>();
         myRigidBody.AddForce(transform.right * speed * 25,ForceMode2D.Impulse);
     }

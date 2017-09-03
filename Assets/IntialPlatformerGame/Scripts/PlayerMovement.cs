@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     private float velocityChange;
     private bool facingRight = true;
     float hInput = 0;
+    float jInput = 0;
 
 
     void Awake()
@@ -28,19 +29,18 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        #if UNITY_ANDROID && !UNITY_IPHONE && !UNITY_BLACKBERRY && !UNITY_WINRT 
-        targetVelocity = Input.GetAxis("Horizontal");
+#if UNITY_EDITOR
+        float targetVelocity = Input.GetAxis("Horizontal");
+        Move(targetVelocity);
         if (Input.GetButton("Jump"))
         {
-            if (rigidBody.velocity.y == 0f)
-            {
-                rigidBody.AddForce(new Vector2(0, jumpForce));
-            }
+            float jumpTmp = 400;
+            jump(jumpTmp);
         }
-        //move();
-#endif
+#elif UNITY_ANDROID
         Move(hInput);
-        
+        jump(jInput);
+#endif
     }
 
     void Flip()
@@ -56,6 +56,11 @@ public class PlayerMovement : MonoBehaviour
         hInput = horizonalInput;
     }
 
+    public void StartJumping(float jumpInput)
+    {
+        jInput = jumpInput;
+    }
+
     public void Move(float targetVelocity)
     {
         targetVelocity *= speed;
@@ -64,10 +69,22 @@ public class PlayerMovement : MonoBehaviour
         velocityChange = Mathf.Clamp(velocityChange, -maxVelocityChange, maxVelocityChange);
         rigidBody.AddForce(new Vector2(velocityChange * frictionCoefficient, 0));
         if (targetVelocity > 0 && !facingRight)
+        {
             Flip();
+        }
         else if (targetVelocity < 0 && facingRight)
+        {
             Flip();
+        } 
     }
 
-   
+    public void jump(float jumpForce)
+    {
+        if (rigidBody.velocity.y == 0f)
+        {
+            rigidBody.AddForce(new Vector2(0, jumpForce));
+        }
+    }
+
+
 }
