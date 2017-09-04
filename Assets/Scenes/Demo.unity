@@ -3712,6 +3712,7 @@ GameObject:
   - component: {fileID: 1327549192}
   - component: {fileID: 1327549197}
   - component: {fileID: 1327549198}
+  - component: {fileID: 1327549199}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3800,8 +3801,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 936cdb7ba0e8e6d449acee976de38c7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defaultY: 0
   player: {fileID: 1921779889}
-  horizontalEdgePosition: 5
+  cameraHorizontalPositionProportion: 3
+  cameraVerticalPositionProportion: 3
+  horizontalTransitionTime: 40
+  verticalTransitionTime: 0.5
 --- !u!50 &1327549198
 Rigidbody2D:
   serializedVersion: 4
@@ -3822,6 +3827,23 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1327549199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1327549191}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9dfad760b6e9455593192a6d869f7ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xMargin: 1
+  yMargin: 1
+  xSmooth: 8
+  ySmooth: 8
+  maxXAndY: {x: 100, y: 10}
+  minXAndY: {x: 0, y: 0}
 --- !u!1001 &1345910810
 Prefab:
   m_ObjectHideFlags: 0
@@ -5095,6 +5117,7 @@ MonoBehaviour:
   m_WhatIsGround:
     serializedVersion: 2
     m_Bits: 512
+  m_FacingRight: 1
 --- !u!61 &1921779892
 BoxCollider2D:
   m_ObjectHideFlags: 0
