@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets._2D;
 
+//Author : Hamed Safaei
 public class CameraController : MonoBehaviour
 {
     public float defaultY = 0;
@@ -11,6 +12,8 @@ public class CameraController : MonoBehaviour
     public int cameraVerticalPositionProportion = 4;
     public float horizontalTransitionTime = 5;
     public float verticalTransitionTime = 5;
+    public Vector2 maxXAndY;
+    public Vector2 minXAndY;
 
     private PlatformerCharacter2D playerScript;
 
@@ -20,6 +23,8 @@ public class CameraController : MonoBehaviour
     private bool cameraInRight = false;
     private bool cameraMoovingHorizontally = false;
     private bool cameraMoovingVertically = false;
+    private float targetX;
+    private float targetY;
 
     void Start()
     {
@@ -38,10 +43,10 @@ public class CameraController : MonoBehaviour
         }
         else if ((transform.position.y != 0) && (player.transform.position.y > 0) && !cameraMoovingVertically)
         {
-            transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+            targetY = player.transform.position.y;
         }
 
-            if ((playerScript.m_FacingRight && !cameraInRight))
+        if ((playerScript.m_FacingRight && !cameraInRight))
         {
             if (cameraMoovingHorizontally)
             {
@@ -66,48 +71,47 @@ public class CameraController : MonoBehaviour
         {
             if (!cameraMoovingHorizontally)
             {
-                transform.position = new Vector3(player.transform.position.x + (playerScript.m_FacingRight ? (screenWidth / horizontalProportion) : -(screenWidth / horizontalProportion)), transform.position.y, transform.position.z);
+                targetX = player.transform.position.x + (playerScript.m_FacingRight ? (screenWidth / horizontalProportion) : -(screenWidth / horizontalProportion));
             }            
         }
 
-        
+        targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
+        targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
+
+        transform.position = new Vector3(targetX, targetY, transform.position.z);
     }
 
     IEnumerator MoveCameraHorizontally(bool moveRight, float time)
     {
-        float value;
         float rate = 1.0f/time;
         float i = 0.0f;
         while (i <= 1)
         {
             i += rate*Time.deltaTime;
             if(moveRight)
-                value = Mathf.Lerp(transform.position.x, player.transform.position.x + screenWidth / horizontalProportion, i);
+                targetX = Mathf.Lerp(transform.position.x, player.transform.position.x + screenWidth / horizontalProportion, i);
             else
-                value = Mathf.Lerp(transform.position.x, player.transform.position.x - screenWidth / horizontalProportion, i);
-            transform.position = new Vector3(value, transform.position.y, transform.position.z);
+                targetX = Mathf.Lerp(transform.position.x, player.transform.position.x - screenWidth / horizontalProportion, i);
             yield return null;
         }
         cameraMoovingHorizontally = false;
-        if(moveRight)
-            transform.position = new Vector3(player.transform.position.x + screenWidth / horizontalProportion, transform.position.y, transform.position.z);
+        if (moveRight)
+            targetX = player.transform.position.x + screenWidth/horizontalProportion;
         else
-            transform.position = new Vector3(player.transform.position.x - screenWidth / horizontalProportion, transform.position.y, transform.position.z);
+            targetX = player.transform.position.x + screenWidth / horizontalProportion;
     }
 
     IEnumerator MoveCameraVerticcaly(float time)
     {
-        float value;
         float rate = 1.0f / time;
         float i = 0.0f;
         while (i <= 1)
         {
             i += rate * Time.deltaTime;
-            value = Mathf.Lerp(transform.position.y, player.transform.position.y, i);
-            transform.position = new Vector3(transform.position.x, value, transform.position.z);
+            targetY = Mathf.Lerp(transform.position.y, player.transform.position.y, i);
             yield return null;
         }
-        transform.position = new Vector3(transform.position.x, player.transform.position.y, transform.position.z);
+        targetY = player.transform.position.y;
         cameraMoovingVertically = false;
     }
 }
