@@ -1,13 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+////Milad Ebrahimi
 public class EnemyShooting : MonoBehaviour {
 	[SerializeField]
 	private Transform firePoint;
 	[SerializeField]
 	private GameObject bullet;
-	public float distance = 50;
+	public float distance;
+	public float telorance;
 	private float shootDelay=2f;
 	GameObject Player;
 	EnemyMovement enemyMove;
@@ -48,8 +49,13 @@ public class EnemyShooting : MonoBehaviour {
 	{
 		float forward = transform.position.x + distance;
 		float back = transform.position.x - distance;
-
-		if (Player.transform.position.x < forward && Player.transform.position.x > back) {
+		float forwardT = transform.position.x + telorance;
+		float backT = transform.position.x - telorance;
+		if(Player.transform.position.x < forwardT && Player.transform.position.x > backT)
+		{
+			return false;
+		}
+		else if (Player.transform.position.x < forward && Player.transform.position.x > back) {
 			if(enemyMove.speed > 0 && Player.transform.position.x < transform.position.x)
 			{
 				enemyMove.flipLeft ();

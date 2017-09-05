@@ -1,8 +1,7 @@
 ﻿using System.Collections; 
 using System.Collections.Generic; 
 using UnityEngine; 
-
-
+////Milad Ebrahimi
 public class BulletController : MonoBehaviour 
 { 
 	public float speed; 
@@ -18,7 +17,6 @@ public class BulletController : MonoBehaviour
 			speed = Mathf.Abs (speed);
 		}
 		fade ();
-		//myRigidBody.velocity = new Vector2 (speed, 0);
 	}
 	void Update()
 	{
@@ -26,8 +24,7 @@ public class BulletController : MonoBehaviour
 	}
 	void fade()
 	{
-		//yield return new WaitForSecondsRealtime (5f);
-		Destroy (gameObject,0.25f);
+		Destroy (gameObject,3f);
 	}
 
 

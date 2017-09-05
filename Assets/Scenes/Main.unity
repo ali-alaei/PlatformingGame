@@ -241,7 +241,12 @@ Prefab:
     - target: {fileID: 114296697809103706, guid: 85d966a69f839e74fa95d3b63dc81045,
         type: 2}
       propertyPath: distance
-      value: 4
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114296697809103706, guid: 85d966a69f839e74fa95d3b63dc81045,
+        type: 2}
+      propertyPath: telorance
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85d966a69f839e74fa95d3b63dc81045, type: 2}
