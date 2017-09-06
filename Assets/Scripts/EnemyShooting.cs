@@ -12,21 +12,23 @@ public class EnemyShooting : MonoBehaviour {
 	private float shootDelay=2f;
 	GameObject Player;
 	EnemyMovement enemyMove;
+	private BoxCollider2D col;
+	private bool isInRegion=false;
 	void Awake()
 	{
 		Player = GameObject.FindGameObjectWithTag("Player");
-
+		col = gameObject.GetComponent<BoxCollider2D> ();
 	}
 	void Start()
 	{
 		enemyMove = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyMovement> ();
 	}
 	void Update () {
-		if (canSeePlayer ()) {
+		/*if (canSeePlayer ()) {
 			StartCoroutine (shootBullet ());
 		} else {
 			StopCoroutine (shootBullet ());
-		}
+		}*/
 	}
 	IEnumerator shootBullet()
 	{
@@ -45,7 +47,7 @@ public class EnemyShooting : MonoBehaviour {
 		}
 		yield return new WaitForSeconds (shootDelay);
 	}
-	private bool canSeePlayer()
+	/*private bool canSeePlayer()
 	{
 		float forward = transform.position.x + distance;
 		float back = transform.position.x - distance;
@@ -68,6 +70,26 @@ public class EnemyShooting : MonoBehaviour {
 		} else {
 			return false;
 		}
+	}*/
+	void OnTriggerStay2D(Collider2D other)
+	{
+		if (other.gameObject.CompareTag ("Player")) {
+			if(enemyMove.speed > 0 && Player.transform.position.x < transform.position.x)
+			{
+				enemyMove.flipLeft ();
+			}
+			else if(enemyMove.speed < 0 && Player.transform.position.x > transform.position.x)
+			{
+				enemyMove.flipRight ();
+			}
+			StartCoroutine (shootBullet ());
+			//StartCoroutine ("wait");
+			Debug.Log ("shooted");
+		}
+	}
+	IEnumerator wait()
+	{
+		yield return new WaitForSeconds(2);
 	}
 
 }
