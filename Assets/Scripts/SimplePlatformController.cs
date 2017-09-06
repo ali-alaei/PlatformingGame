@@ -74,16 +74,5 @@ public class SimplePlatformController : MonoBehaviour {
 		transform.localScale = theScale;
 	}
 
-	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.CompareTag("Elevator")) {
-			if(transform.position.y > coll.transform.position.y + 1)
-			transform.SetParent (coll.transform);
-		}
-	}
-
-	void OnCollisionExit2D(Collision2D coll){
-		if (coll.gameObject.CompareTag("Elevator")) {
-			transform.SetParent (null);
-		}
-	}
+	
 }

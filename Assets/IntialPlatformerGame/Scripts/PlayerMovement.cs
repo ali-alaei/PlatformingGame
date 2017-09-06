@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,16 +17,21 @@ public class PlayerMovement : MonoBehaviour
     float hInput = 0;
     float jInput = 0;
 
+    public Text countText;
+    private int count;
+
 
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.freezeRotation = true;
+        count = 0;
+        SetCountText();
     }
     private void Update()
     {
         
-        
+
     }
 
     void FixedUpdate()
@@ -35,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
         Move(targetVelocity);
         if (Input.GetButton("Jump"))
         {
-            float jumpPower = 400;
+            float jumpPower = 800;
             jump(jumpPower);
         }
 #elif UNITY_ANDROID
@@ -87,5 +93,35 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("pickups"))
+        {
+            other.gameObject.SetActive(false);
+            count = count + 1;
+            SetCountText();
+        }
+    }
+    void SetCountText()
+    {
+        countText.text = count.ToString();
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("Elevator"))
+        {
+            if (transform.position.y > coll.transform.position.y + 1)
+                transform.SetParent(coll.transform);
+        }
+    }
+
+    void OnCollisionExit2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("Elevator"))
+        {
+            transform.SetParent(null);
+        }
+    }
 
 }
