@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour {
 	public GameObject endPoint;
 
 	private Rigidbody2D rigidBody;
-	public bool isInMiddle = false;
+	private bool isInMiddle = false;
 
 	void Awake()
 	{
