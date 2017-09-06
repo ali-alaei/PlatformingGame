@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     float jInput = 0;
 
     public Text countText;
-    private int count;
+    private int count = 5;
 
 
     void Awake()
