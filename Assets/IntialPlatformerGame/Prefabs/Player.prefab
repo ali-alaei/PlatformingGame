@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 50437775884899742}
   - component: {fileID: 58767248013852438}
   - component: {fileID: 58429096387616482}
+  - component: {fileID: 58546502818460826}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -107,9 +108,24 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.09, y: 0.16}
+  m_Offset: {x: 0, y: -0.031315386}
   serializedVersion: 2
-  m_Radius: 0.8
+  m_Radius: 0.60868466
+--- !u!58 &58546502818460826
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752848216535770}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.1}
+  serializedVersion: 2
+  m_Radius: 0.50799245
 --- !u!58 &58767248013852438
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -122,7 +138,7 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2, y: -1.3}
+  m_Offset: {x: 0, y: -1.1}
   serializedVersion: 2
   m_Radius: 0.55
 --- !u!114 &114320892320022468
@@ -185,12 +201,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 777e9159334629348864676c7ce1a8d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: efc71eeb35fc23e408f539e25fd77c92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 2.18, y: 3.76}
+  m_Size: {x: 2.26, y: 3.62}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
