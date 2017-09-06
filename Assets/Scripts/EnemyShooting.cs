@@ -9,11 +9,12 @@ public class EnemyShooting : MonoBehaviour {
 	private GameObject bullet;
 	public float distance;
 	public float telorance;
-	private float shootDelay=2f;
+	[SerializeField]
+	private float shootDelay;
 	GameObject Player;
 	EnemyMovement enemyMove;
 	private BoxCollider2D col;
-	private bool isInRegion=false;
+	private bool isShooted = true;
 	void Awake()
 	{
 		Player = GameObject.FindGameObjectWithTag("Player");
@@ -24,14 +25,15 @@ public class EnemyShooting : MonoBehaviour {
 		enemyMove = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyMovement> ();
 	}
 	void Update () {
-		/*if (canSeePlayer ()) {
+		if (canSeePlayer () && isShooted) {
 			StartCoroutine (shootBullet ());
 		} else {
 			StopCoroutine (shootBullet ());
-		}*/
+		}
 	}
 	IEnumerator shootBullet()
 	{
+		isShooted = false;
 		if (transform.localScale.x<0)
 		{
 			Vector2 firstscale = bullet.transform.localScale;
@@ -46,8 +48,9 @@ public class EnemyShooting : MonoBehaviour {
 			Instantiate (bullet, firePoint.position, Quaternion.identity );
 		}
 		yield return new WaitForSeconds (shootDelay);
+		isShooted = true;
 	}
-	/*private bool canSeePlayer()
+	private bool canSeePlayer()
 	{
 		float forward = transform.position.x + distance;
 		float back = transform.position.x - distance;
@@ -70,26 +73,6 @@ public class EnemyShooting : MonoBehaviour {
 		} else {
 			return false;
 		}
-	}*/
-	void OnTriggerStay2D(Collider2D other)
-	{
-		if (other.gameObject.CompareTag ("Player")) {
-			if(enemyMove.speed > 0 && Player.transform.position.x < transform.position.x)
-			{
-				enemyMove.flipLeft ();
-			}
-			else if(enemyMove.speed < 0 && Player.transform.position.x > transform.position.x)
-			{
-				enemyMove.flipRight ();
-			}
-			StartCoroutine (shootBullet ());
-			//StartCoroutine ("wait");
-			Debug.Log ("shooted");
-		}
-	}
-	IEnumerator wait()
-	{
-		yield return new WaitForSeconds(2);
 	}
 
 }
