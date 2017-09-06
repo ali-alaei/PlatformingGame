@@ -40,13 +40,19 @@ public class BulletController : MonoBehaviour
     //{
     //    Destroy(gameObject);
     //}
-    void OnTriggerEnter(Collider bullet)
+    void OnCollisionEnter2D(Collision2D bullet)
     {
         Debug.Log("Bullet was destroyed");
-        if (bullet.gameObject.tag == "box")
+        Destroy(gameObject);
+        if (bullet.gameObject.CompareTag("box"))
         {
-            Destroy(bullet.gameObject);           
+            
+            
         }
     }
+
+    //void OnCollisionEnter2D(Collision2D coll)
+    //{
+    //}
 
 }
