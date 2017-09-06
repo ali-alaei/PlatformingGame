@@ -4,7 +4,8 @@ using UnityEngine;
 ////Milad Ebrahimi
 public class EnemyLiving : MonoBehaviour {
 	private BoxCollider2D col;
-	private int lives=3;
+	[SerializeField]
+	private int lives;
 	void Awake()
 	{
 		col = gameObject.GetComponent<BoxCollider2D>();
