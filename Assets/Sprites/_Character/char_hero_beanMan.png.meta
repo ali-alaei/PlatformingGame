@@ -20,8 +20,6 @@ TextureImporter:
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
-    mipMapsPreserveCoverage: 0
-    alphaTestReferenceValue: 0.5
     mipMapFadeDistanceStart: 1
     mipMapFadeDistanceEnd: 3
   bumpmap:
@@ -37,13 +35,10 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 1024
   textureSettings:
-    serializedVersion: 2
     filterMode: 1
     aniso: 1
     mipBias: -1
-    wrapU: 1
-    wrapV: 1
-    wrapW: 1
+    wrapMode: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -86,7 +81,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: leftFoot
@@ -100,7 +94,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: body
@@ -114,7 +107,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: tache
@@ -128,7 +120,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: leftHand
@@ -142,7 +133,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: hat
@@ -156,7 +146,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: rightHand
@@ -170,7 +159,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: bazooka
@@ -184,7 +172,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: rightEye
@@ -198,7 +185,6 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     - serializedVersion: 2
       name: leftEye
@@ -212,10 +198,8 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
       tessellationDetail: -1
     outline: []
-    physicsShape: []
   spritePackingTag: characters
   userData: 
   assetBundleName: 
