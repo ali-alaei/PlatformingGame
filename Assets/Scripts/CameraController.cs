@@ -12,8 +12,11 @@ public class CameraController : MonoBehaviour
     public int cameraVerticalPositionProportion = 4;
     public float horizontalTransitionTime = 5;
     public float verticalTransitionTime = 5;
-    public Vector2 maxXAndY;
-    public Vector2 minXAndY;
+    public Transform leftBoundary;
+    public Transform rightBoundary;
+    public Transform upBoundary;
+    public Transform downBoundary;
+    
 
     private PlatformerCharacter2D playerScript;
 
@@ -25,6 +28,8 @@ public class CameraController : MonoBehaviour
     private bool cameraMoovingVertically = false;
     private float targetX;
     private float targetY;
+    private Vector2 maxXAndY;
+    private Vector2 minXAndY;
 
     void Start()
     {
@@ -32,6 +37,9 @@ public class CameraController : MonoBehaviour
         horizontalProportion = cameraHorizontalPositionProportion*2;
         screenHeight = Camera.main.orthographicSize * 2.0f;
         screenWidth = screenHeight * Screen.width / Screen.height;
+
+        maxXAndY = new Vector2(rightBoundary.position.x, upBoundary.position.y);
+        minXAndY = new Vector2(leftBoundary.position.x, downBoundary.position.y);
     }
 
     void Update()
