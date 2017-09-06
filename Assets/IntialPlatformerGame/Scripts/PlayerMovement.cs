@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,13 +26,11 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.freezeRotation = true;
-        count = 0;
         SetCountText();
     }
     private void Update()
     {
-        
-
+        count = Convert.ToInt32(countText.text); 
     }
 
     void FixedUpdate()
