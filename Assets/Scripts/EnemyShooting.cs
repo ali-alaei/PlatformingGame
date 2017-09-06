@@ -51,7 +51,7 @@ public class EnemyShooting : MonoBehaviour {
 		float back = transform.position.x - distance;
 		float forwardT = transform.position.x + telorance;
 		float backT = transform.position.x - telorance;
-		if(Player.transform.position.x < forwardT && Player.transform.position.x > backT)
+		if(Player.transform.position.x < forwardT && Player.transform.position.x > backT && enemyMove.isInMiddle)
 		{
 			return false;
 		}
