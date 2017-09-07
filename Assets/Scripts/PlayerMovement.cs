@@ -118,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (coll.gameObject.CompareTag("bullet"))
         {
+ 
             decreeaseHealth();
             Destroy(coll.gameObject);
         }

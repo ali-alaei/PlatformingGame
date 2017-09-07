@@ -41,6 +41,16 @@ public class HealthBox : MonoBehaviour {
         }
     }
 
+    /*void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("bullet"))
+        {
+            
+            Destroy(gameObject);
+        }
+
+    }*/
+
     void increaseHealth()
     {
         curHealth += 20f;

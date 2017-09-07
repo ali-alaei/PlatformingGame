@@ -40,6 +40,16 @@ public class ArmouryBox : MonoBehaviour
         }
     }
 
+    /*void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("bullet"))
+        {
+            
+            Destroy(gameObject);
+        }
+
+    }*/
+
     void SetCountText()
     {
         countText.text = count.ToString();
