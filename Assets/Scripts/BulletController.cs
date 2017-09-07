@@ -15,7 +15,9 @@ public class BulletController : MonoBehaviour
     {
 
         if (PhyisicsBased)
+        {
             Initialize();
+        }
     }
    
 
