@@ -8,10 +8,7 @@ TagManager:
   - Crate
   - Enemy
   - Wall
-  - Obstacle
   - Bullet
-  - BombPickup
-  - ExplosionFX
   - HealthBar
   - Elevator
   - box
@@ -19,6 +16,8 @@ TagManager:
   - bullet
   - pickups
   - gun
+  - healthBox
+  - armouryBox
   layers:
   - Default
   - TransparentFX

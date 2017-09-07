@@ -19,9 +19,17 @@ public class PlayerMovement : MonoBehaviour
     float jInput = 0;
 
     public Text countText;
+    public Image image; 
+
     private int count = 5;
+    public float maxHealth = 100f;
+    public float curHealth = 0f;
 
-
+    void Start()
+    {
+        curHealth = maxHealth;
+        InvokeRepeating("decreaseHealth" , 0f , 2f);
+    }
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
@@ -94,11 +102,22 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("pickups"))
+        if (other.gameObject.CompareTag("armouryBox"))
         {
             other.gameObject.SetActive(false);
             count = count + 5;
             SetCountText();
+        }
+        if (other.gameObject.CompareTag("bullet"))
+        {
+            other.gameObject.SetActive(false);
+            decreeaseHealth();
+            Destroy(other.gameObject);
+        }
+        if (other.gameObject.CompareTag("healthBox"))
+        {
+            increaseHealth();
+            Destroy(other.gameObject);
         }
     }
     void SetCountText()
@@ -113,6 +132,8 @@ public class PlayerMovement : MonoBehaviour
             if (transform.position.y > coll.transform.position.y + 1)
                 transform.SetParent(coll.transform);
         }
+        
+        
     }
 
     void OnCollisionExit2D(Collision2D coll)
@@ -121,6 +142,26 @@ public class PlayerMovement : MonoBehaviour
         {
             transform.SetParent(null);
         }
+    }
+
+    void decreeaseHealth()
+    {
+        curHealth -= 20f;
+        float calcHealth = curHealth / maxHealth;
+        setHealth(calcHealth);
+    }
+
+    void increaseHealth()
+    {
+        curHealth += 20f;
+        float calcHealth = curHealth / maxHealth;
+        setHealth(calcHealth);
+    }
+
+
+    void setHealth(float myHealth)
+    {
+        image.fillAmount = myHealth;
     }
 
 }
