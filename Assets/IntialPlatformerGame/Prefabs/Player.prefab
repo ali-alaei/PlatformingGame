@@ -26,6 +26,7 @@ GameObject:
   - component: {fileID: 58767248013852438}
   - component: {fileID: 58429096387616482}
   - component: {fileID: 58546502818460826}
+  - component: {fileID: 114351942454233310}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -156,6 +157,21 @@ MonoBehaviour:
   maxVelocityChange: 10
   jumpForce: 500
   frictionCoefficient: 7
+--- !u!114 &114351942454233310
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752848216535770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51a25763a3bbf845a886b4d32b62694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 0}
+  - {fileID: 0}
+  currentWeapon: 0
 --- !u!114 &114934318476621736
 MonoBehaviour:
   m_ObjectHideFlags: 1
