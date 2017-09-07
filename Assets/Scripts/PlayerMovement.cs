@@ -22,22 +22,22 @@ public class PlayerMovement : MonoBehaviour
     public Image image; 
 
     private int count = 5;
-    public float maxHealth = 100f;
-    public float curHealth = 0f;
+    private float maxHealth = 100f;
+    private float curHealth = 0f;
 
     void Start()
     {
         curHealth = maxHealth;
-        InvokeRepeating("decreaseHealth" , 0f , 2f);
+        
     }
     void Awake()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.freezeRotation = true;
-        SetCountText();
     }
     private void Update()
     {
+        curHealth = image.fillAmount * 100;
         count = Convert.ToInt32(countText.text); 
     }
 
@@ -102,28 +102,11 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("armouryBox"))
-        {
-            other.gameObject.SetActive(false);
-            count = count + 5;
-            SetCountText();
-        }
-        if (other.gameObject.CompareTag("bullet"))
-        {
-            other.gameObject.SetActive(false);
-            decreeaseHealth();
-            Destroy(other.gameObject);
-        }
-        if (other.gameObject.CompareTag("healthBox"))
-        {
-            increaseHealth();
-            Destroy(other.gameObject);
-        }
+        
+        
+        
     }
-    void SetCountText()
-    {
-        countText.text = count.ToString();
-    }
+    
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -132,8 +115,13 @@ public class PlayerMovement : MonoBehaviour
             if (transform.position.y > coll.transform.position.y + 1)
                 transform.SetParent(coll.transform);
         }
-        
-        
+
+        if (coll.gameObject.CompareTag("bullet"))
+        {
+            decreeaseHealth();
+            Destroy(coll.gameObject);
+        }
+
     }
 
     void OnCollisionExit2D(Collision2D coll)
@@ -151,12 +139,7 @@ public class PlayerMovement : MonoBehaviour
         setHealth(calcHealth);
     }
 
-    void increaseHealth()
-    {
-        curHealth += 20f;
-        float calcHealth = curHealth / maxHealth;
-        setHealth(calcHealth);
-    }
+   
 
 
     void setHealth(float myHealth)
