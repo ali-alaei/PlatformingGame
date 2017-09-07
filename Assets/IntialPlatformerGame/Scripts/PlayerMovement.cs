@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("pickups"))
         {
             other.gameObject.SetActive(false);
-            count = count + 1;
+            count = count + 5;
             SetCountText();
         }
     }

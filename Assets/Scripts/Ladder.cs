@@ -16,10 +16,13 @@ public class Ladder : MonoBehaviour {
 	}
 
 	void OnTriggerStay2D(Collider2D coll){
-		if (coll.tag == "player" && Input.GetKey (KeyCode.UpArrow)) {
-			coll.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, speed);
-		} else if (coll.tag == "player" && Input.GetKey (KeyCode.DownArrow)) {
-			coll.GetComponent<Rigidbody2D> ().velocity = new Vector2 (0, -speed);
+        if (coll.tag == "player" && Input.GetKey(KeyCode.UpArrow)) {
+            coll.GetComponent<Rigidbody2D>().velocity = new Vector2(0, speed);
+        } else if (coll.tag == "player" && Input.GetKey(KeyCode.DownArrow)) {
+            coll.GetComponent<Rigidbody2D>().velocity = new Vector2(0, -speed);
+        }else if(coll.tag == "gun")
+        { 
+            
 		} else {
 			Vector2 Velo = coll.GetComponent<Rigidbody2D> ().velocity;
 			Velo.y = 0.2175999805331f;

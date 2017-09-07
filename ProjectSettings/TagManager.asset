@@ -18,6 +18,7 @@ TagManager:
   - player
   - bullet
   - pickups
+  - gun
   layers:
   - Default
   - TransparentFX
