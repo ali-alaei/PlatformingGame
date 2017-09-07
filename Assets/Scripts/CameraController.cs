@@ -31,6 +31,8 @@ public class CameraController : MonoBehaviour
     private Vector2 maxXAndY;
     private Vector2 minXAndY;
 
+    private Coroutine horizontalMoveCoroutine;
+
     void Start()
     {
         playerScript = player.GetComponent<PlatformerCharacter2D>();
@@ -44,7 +46,51 @@ public class CameraController : MonoBehaviour
 
     void Update()
     {
-        if ((player.transform.position.y > (screenHeight/cameraVerticalPositionProportion)) &&  transform.position.y == 0)
+        DetermineX();
+        DetermineY();
+
+        targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
+        targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
+
+        transform.position = new Vector3(targetX, targetY, transform.position.z);
+    }
+
+    private void DetermineX()
+    {
+        if ((playerScript.m_FacingRight && !cameraInRight))
+        {
+            if (cameraMoovingHorizontally)
+            {
+                StopCoroutine(horizontalMoveCoroutine);
+                cameraMoovingHorizontally = false;
+            }
+            cameraMoovingHorizontally = true;
+            horizontalMoveCoroutine = StartCoroutine(MoveCameraHorizontally(true, horizontalTransitionTime));
+            cameraInRight = true;
+        }
+        else if (!playerScript.m_FacingRight && cameraInRight)
+        {
+            if (cameraMoovingHorizontally)
+            {
+                StopCoroutine(horizontalMoveCoroutine);
+                cameraMoovingHorizontally = false;
+            }
+            cameraMoovingHorizontally = true;
+            horizontalMoveCoroutine = StartCoroutine(MoveCameraHorizontally(false, horizontalTransitionTime));
+            cameraInRight = false;
+        }
+        else
+        {
+            if (!cameraMoovingHorizontally)
+            {
+                targetX = player.transform.position.x + (playerScript.m_FacingRight ? (screenWidth / horizontalProportion) : -(screenWidth / horizontalProportion));
+            }
+        }
+    }
+
+    private void DetermineY()
+    {
+        if ((player.transform.position.y > (screenHeight / cameraVerticalPositionProportion)) && transform.position.y == 0)
         {
             cameraMoovingVertically = true;
             StartCoroutine(MoveCameraVerticcaly(verticalTransitionTime));
@@ -53,40 +99,6 @@ public class CameraController : MonoBehaviour
         {
             targetY = player.transform.position.y;
         }
-
-        if ((playerScript.m_FacingRight && !cameraInRight))
-        {
-            if (cameraMoovingHorizontally)
-            {
-                StopAllCoroutines();
-                cameraMoovingHorizontally = false;
-            }
-            cameraMoovingHorizontally = true;
-            StartCoroutine(MoveCameraHorizontally(true, horizontalTransitionTime));
-            cameraInRight = true;
-        }else if (!playerScript.m_FacingRight && cameraInRight)
-        {
-            if (cameraMoovingHorizontally)
-            {
-                StopAllCoroutines();
-                cameraMoovingHorizontally = false;
-            }
-            cameraMoovingHorizontally = true;
-            StartCoroutine(MoveCameraHorizontally(false, horizontalTransitionTime));
-            cameraInRight = false;
-        }
-        else
-        {
-            if (!cameraMoovingHorizontally)
-            {
-                targetX = player.transform.position.x + (playerScript.m_FacingRight ? (screenWidth / horizontalProportion) : -(screenWidth / horizontalProportion));
-            }            
-        }
-
-        targetX = Mathf.Clamp(targetX, minXAndY.x, maxXAndY.x);
-        targetY = Mathf.Clamp(targetY, minXAndY.y, maxXAndY.y);
-
-        transform.position = new Vector3(targetX, targetY, transform.position.z);
     }
 
     IEnumerator MoveCameraHorizontally(bool moveRight, float time)
