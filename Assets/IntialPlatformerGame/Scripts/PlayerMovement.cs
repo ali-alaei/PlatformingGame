@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
         Move(targetVelocity);
         if (Input.GetButton("Jump"))
         {
-            float jumpPower = 400;
+            float jumpPower = jumpForce;
             jump(jumpPower);
         }
 #elif UNITY_ANDROID

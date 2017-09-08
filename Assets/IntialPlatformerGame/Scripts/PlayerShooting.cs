@@ -13,13 +13,13 @@ public class PlayerShooting : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        Shoot();
+        //Shoot();
     }
 
     public void startShooting(int isClicked)
     {
         shootInput = isClicked;
-        //Shoot();
+        Shoot();
     }
 
     void Shoot()
