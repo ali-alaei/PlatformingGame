@@ -253,6 +253,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.96, y: 0.21}
   m_EdgeRadius: 0
+--- !u!114 &90615269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 90615263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad7d5833ad2e69d4dbdffe726eb80a98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1858520173}
 --- !u!1 &109299931
 GameObject:
   m_ObjectHideFlags: 0
@@ -4062,7 +4074,6 @@ MonoBehaviour:
   jumpForce: 10000
   frictionCoefficient: 7
   countText: {fileID: 764958646}
-  image: {fileID: 1858520173}
 --- !u!114 &1092897112
 MonoBehaviour:
   m_ObjectHideFlags: 0

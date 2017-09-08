@@ -19,15 +19,14 @@ public class PlayerMovement : MonoBehaviour
     float jInput = 0;
 
     public Text countText;
-    public Image image; 
+     
 
     private int count = 5;
-    private float maxHealth = 100f;
-    private float curHealth = 0f;
+   
 
     void Start()
     {
-        curHealth = maxHealth;
+        
         
     }
     void Awake()
@@ -37,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        curHealth = image.fillAmount * 100;
+        
         count = Convert.ToInt32(countText.text); 
     }
 
@@ -100,13 +99,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        
-        
-        
-    }
-    
 
     void OnCollisionEnter2D(Collision2D coll)
     {
@@ -115,14 +107,6 @@ public class PlayerMovement : MonoBehaviour
             if (transform.position.y > coll.transform.position.y + 1)
                 transform.SetParent(coll.transform);
         }
-
-        if (coll.gameObject.CompareTag("bullet"))
-        {
- 
-            decreeaseHealth();
-            Destroy(coll.gameObject);
-        }
-
     }
 
     void OnCollisionExit2D(Collision2D coll)
@@ -133,19 +117,5 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void decreeaseHealth()
-    {
-        curHealth -= 20f;
-        float calcHealth = curHealth / maxHealth;
-        setHealth(calcHealth);
-    }
-
-   
-
-
-    void setHealth(float myHealth)
-    {
-        image.fillAmount = myHealth;
-    }
 
 }
