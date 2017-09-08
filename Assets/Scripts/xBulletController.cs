@@ -16,6 +16,7 @@ public class xBulletController : MonoBehaviour
 
         if (PhyisicsBased)
             Initialize();
+        fade();
     }
    
 
@@ -49,6 +50,11 @@ public class xBulletController : MonoBehaviour
             
             
         }
+    }
+
+    void fade()
+    {
+        Destroy(gameObject, 3f);
     }
 
     //void OnCollisionEnter2D(Collision2D coll)

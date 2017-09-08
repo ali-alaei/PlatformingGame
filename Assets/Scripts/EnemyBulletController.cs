@@ -1,31 +1,52 @@
-﻿using System.Collections; 
-using System.Collections.Generic; 
-using UnityEngine; 
-////Milad Ebrahimi
-public class BulletController : MonoBehaviour 
-{ 
-	public float speed; 
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
-	private Rigidbody2D myRigidBody;
-	Time start ;
-	void Start()
-	{
-		myRigidBody = GetComponent<Rigidbody2D> ();
-		if (transform.localScale.x > 0) {
-			speed = -1 * Mathf.Abs (speed);
-		} else {
-			speed = Mathf.Abs (speed);
-		}
-		fade ();
-	}
-	void Update()
-	{
-		transform.Translate (new Vector3 (speed, 0, 0) * Time.deltaTime);
-	}
-	void fade()
-	{
-		Destroy (gameObject,3f);
-	}
+public class EnemyBulletHealthScript : MonoBehaviour
+{
+
+    public Image image;
+    private float maxHealth = 100f;
+    private float curHealth = 0f;
+
+    // Use this for initialization
+    void Start()
+    {
+        curHealth = maxHealth;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+        curHealth = image.fillAmount * 100;
+
+    }
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        if (coll.gameObject.CompareTag("player"))
+        {
+
+            decreeaseHealth();
+            Destroy(gameObject);
+        }
+
+    }
 
 
-} 
+    void decreeaseHealth()
+    {
+        curHealth -= 20f;
+        float calcHealth = curHealth / maxHealth;
+        setHealth(calcHealth);
+    }
+
+
+
+
+    void setHealth(float myHealth)
+    {
+        image.fillAmount = myHealth;
+    }
+}
