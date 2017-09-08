@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\Platformer2DUserControl.cs" />
+    <Compile Include="Assets\Scripts\PlatformerBoundaries.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
   </ItemGroup>
   <ItemGroup>

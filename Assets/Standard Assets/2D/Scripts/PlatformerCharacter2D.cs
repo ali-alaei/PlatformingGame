@@ -20,6 +20,15 @@ namespace UnityStandardAssets._2D
         private Rigidbody2D m_Rigidbody2D;
         [HideInInspector]public bool m_FacingRight = true;  // For determining which way the player is currently facing.
 
+        public Transform leftBoundary;
+        public Transform rightBoundary;
+        public Transform upBoundary;
+        public Transform downBoundary;
+        private float leftBoundaryF;
+        private float rightBoundaryF;
+        private float upBoundaryF;
+        private float downBoundaryF;
+
         private void Awake()
         {
             // Setting up references.
@@ -27,6 +36,11 @@ namespace UnityStandardAssets._2D
             m_CeilingCheck = transform.Find("CeilingCheck");
             m_Anim = GetComponent<Animator>();
             m_Rigidbody2D = GetComponent<Rigidbody2D>();
+
+            leftBoundaryF = leftBoundary.position.x;
+            rightBoundaryF = rightBoundary.position.x;
+            upBoundaryF = upBoundary.position.y;
+            downBoundaryF = downBoundary.position.y;
         }
 
 
@@ -70,6 +84,11 @@ namespace UnityStandardAssets._2D
                 // Reduce the speed if crouching by the crouchSpeed multiplier
                 move = (crouch ? move*m_CrouchSpeed : move);
 
+                if (((transform.position.x > rightBoundaryF) && (move > 0)) ||
+                    ((transform.position.x < leftBoundaryF) && (move < 0)))
+                {
+                    move = 0;
+                }
                 // The Speed animator parameter is set to the absolute value of the horizontal input.
                 m_Anim.SetFloat("Speed", Mathf.Abs(move));
 
@@ -95,8 +114,11 @@ namespace UnityStandardAssets._2D
                 // Add a vertical force to the player.
                 m_Grounded = false;
                 m_Anim.SetBool("Ground", false);
-                m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+                m_Rigidbody2D.AddForce(new Vector2(0f,transform.position.y > upBoundaryF ? 0 : m_JumpForce));
             }
+
+            if (transform.position.y < downBoundaryF)
+                transform.position = new Vector3(transform.position.x, downBoundaryF, transform.position.z);
         }
 
 
