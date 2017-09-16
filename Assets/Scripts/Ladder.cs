@@ -23,7 +23,7 @@ public class Ladder : MonoBehaviour {
         }else if(coll.tag == "gun")
         { 
             
-		} else {
+		} else if(coll.tag == "Player") {
 			Vector2 Velo = coll.GetComponent<Rigidbody2D> ().velocity;
 			Velo.y = 0.2175999805331f;
 			coll.GetComponent<Rigidbody2D> ().velocity = Velo;

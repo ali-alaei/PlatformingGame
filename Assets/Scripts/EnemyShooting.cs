@@ -7,14 +7,14 @@ public class EnemyShooting : MonoBehaviour {
 	private Transform firePoint;
 	[SerializeField]
 	private GameObject bullet;
-	public float distance;
-	public float telorance;
+	//public float distance;
+	//public float telorance;
 	[SerializeField]
 	private float shootDelay;
-	GameObject Player;
-	EnemyMovement enemyMove;
-	private bool isShooted = false;
-	void Awake()
+	//GameObject Player;
+	//EnemyMovement enemyMove;
+	public bool isShooted = false;
+	/*void Awake()
 	{
 		Player = GameObject.FindGameObjectWithTag("Player");
 	}
@@ -28,8 +28,8 @@ public class EnemyShooting : MonoBehaviour {
 		} else {
 			StopCoroutine (shootBullet ());
 		}
-	}
-	IEnumerator shootBullet()
+	}*/
+	public IEnumerator shootBullet()
 	{
 		isShooted = true;
 		if (transform.localScale.x<0)
@@ -48,7 +48,7 @@ public class EnemyShooting : MonoBehaviour {
 		yield return new WaitForSeconds (shootDelay);
 		isShooted = false;
 	}
-	private bool canSeePlayer()
+	/*private bool canSeePlayer()
 	{
 		float forward = transform.position.x + distance;
 		float back = transform.position.x - distance;
@@ -84,6 +84,6 @@ public class EnemyShooting : MonoBehaviour {
 				enemyMove.flipRight ();
 			}
 		}
-	}
+	}*/
 
 }

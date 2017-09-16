@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - bullet
+  - Elevator
+  - healthBox
+  - armouryBox
+  - box
+  - gun
+  - Enemy
+  - PlayerBullet
+  - PlayerDetector
   layers:
   - Default
   - TransparentFX
