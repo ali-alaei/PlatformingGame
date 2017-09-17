@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4757634906612462}
-  - component: {fileID: 114307976300745066}
+  - component: {fileID: 114736798426799122}
   m_Layer: 9
   m_Name: WeaponHandler
-  m_TagString: Untagged
+  m_TagString: gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -43,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1718153147452242
 GameObject:
   m_ObjectHideFlags: 1
@@ -53,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4104716994632714}
   - component: {fileID: 212949515943358412}
+  - component: {fileID: 61591644027034478}
   m_Layer: 0
   m_Name: ShutGun
   m_TagString: Untagged
@@ -202,8 +203,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752848216535770}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -18.6, y: 2.4, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.6, y: -0.693924, z: 0}
   m_LocalScale: {x: 0.6, y: 0.85678804, z: 0.3998068}
   m_Children:
   - {fileID: 4979880929611050}
@@ -243,7 +244,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58429096387616482
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -274,6 +275,31 @@ CircleCollider2D:
   m_Offset: {x: -0.2, y: -1.3}
   serializedVersion: 2
   m_Radius: 0.55
+--- !u!61 &61591644027034478
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718153147452242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 13.36, y: 4.14}
+    newSize: {x: 13.36, y: 4.14}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 13.36, y: 4.14}
+  m_EdgeRadius: 0
 --- !u!61 &61605353722295154
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -299,18 +325,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.09, y: 2.03}
   m_EdgeRadius: 0
---- !u!114 &114307976300745066
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1302033128990652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278380d6e78c78a4ca4fa474f26096fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedWeapon: 0
 --- !u!114 &114320892320022468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -350,6 +364,22 @@ MonoBehaviour:
   rightBoundary: {fileID: 0}
   upBoundary: {fileID: 0}
   downBoundary: {fileID: 0}
+--- !u!114 &114736798426799122
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1302033128990652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278380d6e78c78a4ca4fa474f26096fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedWeapon: 0
+  machineGunBullet: {fileID: 1459503794040876, guid: 9f9ac6890c2e91e4bac8b12ecd5f26fd,
+    type: 2}
+  coltBullet: {fileID: 1594549367490914, guid: 6ee183e9a5c421940ad41f642b96d7de, type: 2}
+  isColt: 0
 --- !u!114 &114934318476621736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -362,8 +392,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 4101646017294984}
-  bullet: {fileID: 1594549367490914, guid: f8985df8da2b8c443b927783172a9c16, type: 2}
-  countText: {fileID: 0}
+  bullet: {fileID: 1459503794040876, guid: 9f9ac6890c2e91e4bac8b12ecd5f26fd, type: 2}
+  coltBulletCountText: {fileID: 0}
+  machineGunBulletCountText: {fileID: 0}
+  isColte: 0
 --- !u!212 &212136994582441196
 SpriteRenderer:
   m_ObjectHideFlags: 1

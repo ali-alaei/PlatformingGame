@@ -9,20 +9,31 @@ public class PlayerShooting : MonoBehaviour {
     [SerializeField]
     private Transform firePoint;
     [SerializeField]
-    private GameObject bullet;
+    public GameObject bullet;
     
     int shootInput;
 
-    public Text countText;
-    private int count;
+    WeaponSwithcing weaponSwitching;
+    public Text coltBulletCountText;
+    public Text machineGunBulletCountText;
+    public bool isColte;
+    private int coltCounter;
+    private int machineGunCounter;
 
 
+    private void Start()
+    {
+        weaponSwitching = GameObject.FindGameObjectWithTag("gun").GetComponent<WeaponSwithcing>();
+    }
     // Update is called once per frame
-    
+
     void Update ()
     {
-        count = Convert.ToInt32(countText.text);
+        coltCounter = Convert.ToInt32(coltBulletCountText.text);
+        machineGunCounter = Convert.ToInt32(machineGunBulletCountText.text);
+        isColte = weaponSwitching.isColt;
         Shoot();
+        
     }
 
     public void startShooting(int isClicked)
@@ -34,12 +45,20 @@ public class PlayerShooting : MonoBehaviour {
     void Shoot()
     {
 #if UNITY_EDITOR
-        if (count > 0)
+        if (coltCounter > 0)
         {
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
-                count--;
-                SetCountText();
+                if (isColte == true) {
+                    coltCounter--;
+                    SetCountText(coltBulletCountText , coltCounter);
+                }
+                if (isColte == false) { 
+                    machineGunCounter--;
+                    SetCountText(machineGunBulletCountText , machineGunCounter);
+                }
+                
+                
                 if (transform.localScale.x > 0)
                 {
                     Instantiate(bullet, firePoint.position, Quaternion.identity);
@@ -68,9 +87,9 @@ public class PlayerShooting : MonoBehaviour {
         }
 #endif
     }
-    void SetCountText()
+    void SetCountText(Text txt , int x)
     {
-        countText.text = count.ToString();
+        txt.text = x.ToString();
     }
 }
 

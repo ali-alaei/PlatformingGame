@@ -5,10 +5,15 @@ using UnityEngine;
 public class WeaponSwithcing : MonoBehaviour {
 
     public int selectedWeapon = 0;
-    
-	// Use this for initialization
-	void Start () {
+    PlayerShooting playershoot;
+    public GameObject machineGunBullet;
+    public GameObject coltBullet;
+    public bool isColt;
+
+    // Use this for initialization
+    void Start () {
         SelectWeapon();
+        playershoot = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
 		
 	}
 	
@@ -50,10 +55,14 @@ public class WeaponSwithcing : MonoBehaviour {
             if (selectedWeapon >= transform.childCount - 1)
             {
                 selectedWeapon = 0;
+                playershoot.bullet = machineGunBullet;
+                isColt = false;
             }
             else
             {
                 selectedWeapon++;
+                playershoot.bullet = coltBullet;
+                isColt = true;
             }
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -61,10 +70,15 @@ public class WeaponSwithcing : MonoBehaviour {
             if (selectedWeapon <= 0)
             {
                 selectedWeapon = transform.childCount - 1;
+                playershoot.bullet = coltBullet;
+                isColt = true;
             }
             else
             {
                 selectedWeapon--;
+                playershoot.bullet = machineGunBullet;
+                isColt = false;
+
             }
         }
 

@@ -194,16 +194,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114320892320022468, guid: 65153d49630fd38409f60530f502523a,
-        type: 2}
-      propertyPath: countText
-      value: 
-      objectReference: {fileID: 764958646}
-    - target: {fileID: 114934318476621736, guid: 65153d49630fd38409f60530f502523a,
-        type: 2}
-      propertyPath: countText
-      value: 
-      objectReference: {fileID: 764958646}
     - target: {fileID: 114405926340591220, guid: 65153d49630fd38409f60530f502523a,
         type: 2}
       propertyPath: leftBoundary
@@ -224,7 +214,29 @@ Prefab:
       propertyPath: downBoundary
       value: 
       objectReference: {fileID: 635341289}
-    m_RemovedComponents: []
+    - target: {fileID: 114320892320022468, guid: 65153d49630fd38409f60530f502523a,
+        type: 2}
+      propertyPath: countText
+      value: 
+      objectReference: {fileID: 764958646}
+    - target: {fileID: 114934318476621736, guid: 65153d49630fd38409f60530f502523a,
+        type: 2}
+      propertyPath: countText
+      value: 
+      objectReference: {fileID: 764958646}
+    - target: {fileID: 114934318476621736, guid: 65153d49630fd38409f60530f502523a,
+        type: 2}
+      propertyPath: machineGunBulletCountText
+      value: 
+      objectReference: {fileID: 1939470898}
+    - target: {fileID: 114934318476621736, guid: 65153d49630fd38409f60530f502523a,
+        type: 2}
+      propertyPath: coltBulletCountText
+      value: 
+      objectReference: {fileID: 764958646}
+    m_RemovedComponents:
+    - {fileID: 114307976300745066, guid: 65153d49630fd38409f60530f502523a, type: 2}
+    - {fileID: 114736798426799122, guid: 65153d49630fd38409f60530f502523a, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 65153d49630fd38409f60530f502523a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &110622644
@@ -2154,12 +2166,6 @@ Prefab:
     - {fileID: 114220469611660196, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &618188783 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114307976300745066, guid: 65153d49630fd38409f60530f502523a,
-    type: 2}
-  m_PrefabInternal: {fileID: 86491060}
-  m_Script: {fileID: 11500000, guid: 278380d6e78c78a4ca4fa474f26096fb, type: 3}
 --- !u!1 &630887569 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1690441808338118, guid: bb5f90a418376cc47945dbc5ab5da4e7,
@@ -2961,7 +2967,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1192198784951026, guid: ad5ff45aac7d1344f9bece17cc3c4173, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad5ff45aac7d1344f9bece17cc3c4173, type: 2}
@@ -4060,6 +4066,27 @@ Prefab:
     - {fileID: 114220469611660196, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1172459063 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1302033128990652, guid: 65153d49630fd38409f60530f502523a,
+    type: 2}
+  m_PrefabInternal: {fileID: 86491060}
+--- !u!114 &1172459065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1172459063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 278380d6e78c78a4ca4fa474f26096fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedWeapon: 0
+  machineGunBullet: {fileID: 1459503794040876, guid: 9f9ac6890c2e91e4bac8b12ecd5f26fd,
+    type: 2}
+  coltBullet: {fileID: 1594549367490914, guid: 6ee183e9a5c421940ad41f642b96d7de, type: 2}
+  isColt: 0
 --- !u!1 &1177221324 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1690441808338118, guid: bb5f90a418376cc47945dbc5ab5da4e7,
@@ -5422,7 +5449,7 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 618188783}
+      objectReference: {fileID: 0}
     - target: {fileID: 114864643863026462, guid: 7d3d69865779c3040b517701b7d1b9b3,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -6426,6 +6453,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 49
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1939470898 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114259939999365472, guid: ad5ff45aac7d1344f9bece17cc3c4173,
+    type: 2}
+  m_PrefabInternal: {fileID: 858694128}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1945272686
 GameObject:
   m_ObjectHideFlags: 0
