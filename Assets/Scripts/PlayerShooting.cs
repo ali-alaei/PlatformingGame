@@ -9,8 +9,11 @@ public class PlayerShooting : MonoBehaviour {
     [SerializeField]
     private Transform firePoint;
     [SerializeField]
-    private GameObject bullet;
-    
+    private GameObject shutgunBullet;
+    [SerializeField]
+    private GameObject coltBullet;
+    private WeaponSwithcing weaponType;
+
     int shootInput;
 
     public Text countText;
@@ -18,7 +21,12 @@ public class PlayerShooting : MonoBehaviour {
 
 
     // Update is called once per frame
-    
+    private void Start()
+    {
+        weaponType = GetComponentInChildren<WeaponSwithcing>();
+    }
+
+
     void Update ()
     {
         count = Convert.ToInt32(countText.text);
@@ -36,17 +44,32 @@ public class PlayerShooting : MonoBehaviour {
 #if UNITY_EDITOR
         if (count > 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl))
+            if (Input.GetKeyDown(KeyCode.LeftControl) && weaponType.ColtSelected)
             {
                 count--;
                 SetCountText();
                 if (transform.localScale.x > 0)
                 {
-                    Instantiate(bullet, firePoint.position, Quaternion.identity);
+                    Instantiate(coltBullet, firePoint.position, Quaternion.identity);
                 }
                 if (transform.localScale.x < 0)
                 {
-                    Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, 180));
+                    Instantiate(coltBullet, firePoint.position, Quaternion.Euler(0, 0, 180));
+                }
+                //GameObject bullet_temp = Instantiate(bullet, firePoint.position, Quaternion.identity) as GameObject;
+            }
+
+            else if (Input.GetKeyDown(KeyCode.LeftControl) && weaponType.ShutgunSelected)
+            {
+                count--;
+                SetCountText();
+                if (transform.localScale.x > 0)
+                {
+                    Instantiate(shutgunBullet, firePoint.position, Quaternion.identity);
+                }
+                if (transform.localScale.x < 0)
+                {
+                    Instantiate(shutgunBullet, firePoint.position, Quaternion.Euler(0, 0, 180));
                 }
                 //GameObject bullet_temp = Instantiate(bullet, firePoint.position, Quaternion.identity) as GameObject;
             }

@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50966214198056172}
   - component: {fileID: 61201232516272524}
   - component: {fileID: 114964178351481796}
+  - component: {fileID: 114976710084122470}
   m_Layer: 9
   m_Name: Shutgun Bullet
   m_TagString: Untagged
@@ -79,7 +80,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5.12, y: 5.12}
+    oldSize: {x: 0.51, y: 0.17}
     newSize: {x: 5.12, y: 5.12}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -94,12 +95,25 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1746702913555374}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d6a0ffc39df26c49b6163e66b332c5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 1
+--- !u!114 &114976710084122470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1746702913555374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 499b681bdda03564da98413e98dcae17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   speed: 0
+  PhyisicsBased: 1
 --- !u!212 &212910932931129094
 SpriteRenderer:
   m_ObjectHideFlags: 1

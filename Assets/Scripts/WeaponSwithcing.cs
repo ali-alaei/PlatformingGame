@@ -5,16 +5,49 @@ using UnityEngine;
 public class WeaponSwithcing : MonoBehaviour {
 
     public int selectedWeapon = 0;
+
+    private bool shutgunSelected;
+
+    public bool ShutgunSelected
+    {
+        get
+        {
+            return shutgunSelected;
+        }
+
+        set
+        {
+            shutgunSelected = value;
+        }
+    }
+
+    private bool coltSelected;
+
+    public bool ColtSelected
+    {
+        get
+        {
+            return coltSelected;
+        }
+
+        set
+        {
+            coltSelected = value;
+        }
+    }
+
     
-	// Use this for initialization
-	void Start () {
+
+
+
+    // Use this for initialization
+    void Start () {
         SelectWeapon();
 		
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
         int previousSelectedWeapon = selectedWeapon;
 #if UNITY_EDITOR
         SwitchWeapon();
@@ -39,7 +72,6 @@ public class WeaponSwithcing : MonoBehaviour {
         {
             selectedWeapon++;
         }
-
     }
 
 
@@ -50,6 +82,7 @@ public class WeaponSwithcing : MonoBehaviour {
             if (selectedWeapon >= transform.childCount - 1)
             {
                 selectedWeapon = 0;
+                
             }
             else
             {
@@ -67,8 +100,6 @@ public class WeaponSwithcing : MonoBehaviour {
                 selectedWeapon--;
             }
         }
-
-
     }
 
     void SelectWeapon()
@@ -79,10 +110,18 @@ public class WeaponSwithcing : MonoBehaviour {
             if(i == selectedWeapon)
             {
                 weapon.gameObject.SetActive(true);
+                if (i==0)
+                {
+                    shutgunSelected = true;
+                }
+                else if (i==1)
+                {
+                    coltSelected = true;
+                }
             }
             else
             {
-                weapon.gameObject.SetActive(false);
+                weapon.gameObject.SetActive(false);               
             }
             i++;
 

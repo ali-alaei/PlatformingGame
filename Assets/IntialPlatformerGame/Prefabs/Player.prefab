@@ -43,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1718153147452242
 GameObject:
   m_ObjectHideFlags: 1
@@ -53,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4104716994632714}
   - component: {fileID: 212949515943358412}
+  - component: {fileID: 61961661534705900}
   m_Layer: 0
   m_Name: ShutGun
   m_TagString: Untagged
@@ -243,7 +244,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58429096387616482
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -298,6 +299,31 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 3.09, y: 2.03}
+  m_EdgeRadius: 0
+--- !u!61 &61961661534705900
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1718153147452242}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 13.36, y: 4.14}
+    newSize: {x: 13.36, y: 4.14}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 13.36, y: 4.14}
   m_EdgeRadius: 0
 --- !u!114 &114307976300745066
 MonoBehaviour:
@@ -362,7 +388,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 4101646017294984}
-  bullet: {fileID: 1594549367490914, guid: 6ee183e9a5c421940ad41f642b96d7de, type: 2}
+  shutgunBullet: {fileID: 1746702913555374, guid: 10e19846b7a476c44b1927addc980a6e,
+    type: 2}
+  coltBullet: {fileID: 1594549367490914, guid: 6ee183e9a5c421940ad41f642b96d7de, type: 2}
   countText: {fileID: 0}
 --- !u!212 &212136994582441196
 SpriteRenderer:

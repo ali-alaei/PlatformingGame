@@ -164,11 +164,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4957383082674672, guid: 65153d49630fd38409f60530f502523a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.22
+      value: -4.9
       objectReference: {fileID: 0}
     - target: {fileID: 4957383082674672, guid: 65153d49630fd38409f60530f502523a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.5
+      value: -0.56
       objectReference: {fileID: 0}
     - target: {fileID: 4957383082674672, guid: 65153d49630fd38409f60530f502523a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2962,10 +2962,6 @@ Prefab:
     - target: {fileID: 1192198784951026, guid: ad5ff45aac7d1344f9bece17cc3c4173, type: 2}
       propertyPath: m_Name
       value: Canvas(guns and heart)
-      objectReference: {fileID: 0}
-    - target: {fileID: 1192198784951026, guid: ad5ff45aac7d1344f9bece17cc3c4173, type: 2}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ad5ff45aac7d1344f9bece17cc3c4173, type: 2}
@@ -6017,6 +6013,11 @@ Prefab:
       propertyPath: endPoint
       value: 
       objectReference: {fileID: 1846740450}
+    - target: {fileID: 114134485756088492, guid: 85d966a69f839e74fa95d3b63dc81045,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85d966a69f839e74fa95d3b63dc81045, type: 2}
   m_IsPrefabParent: 0
