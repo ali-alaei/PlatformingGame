@@ -8,10 +8,11 @@ TagManager:
   - bullet
   - Elevator
   - healthBox
-  - armouryBox
   - box
   - Enemy
   - PlayerBullet
+  - ColtArmouryBox
+  - MachineGunArmouryBox
   layers:
   - Default
   - TransparentFX

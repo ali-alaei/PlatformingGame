@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4757634906612462}
-  - component: {fileID: 114736798426799122}
+  - component: {fileID: 114896168000544152}
   m_Layer: 9
   m_Name: WeaponHandler
   m_TagString: gun
@@ -203,8 +203,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752848216535770}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6, y: -0.693924, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.6, y: -0.69, z: 0}
   m_LocalScale: {x: 0.6, y: 0.85678804, z: 0.3998068}
   m_Children:
   - {fileID: 4979880929611050}
@@ -364,7 +364,7 @@ MonoBehaviour:
   rightBoundary: {fileID: 0}
   upBoundary: {fileID: 0}
   downBoundary: {fileID: 0}
---- !u!114 &114736798426799122
+--- !u!114 &114896168000544152
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -376,9 +376,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedWeapon: 0
-  machineGunBullet: {fileID: 1459503794040876, guid: 9f9ac6890c2e91e4bac8b12ecd5f26fd,
-    type: 2}
-  coltBullet: {fileID: 1594549367490914, guid: 6ee183e9a5c421940ad41f642b96d7de, type: 2}
   isColt: 0
 --- !u!114 &114934318476621736
 MonoBehaviour:
@@ -392,7 +389,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 4101646017294984}
-  bullet: {fileID: 1459503794040876, guid: 9f9ac6890c2e91e4bac8b12ecd5f26fd, type: 2}
+  machineGunBullet: {fileID: 1459503794040876, guid: 9f9ac6890c2e91e4bac8b12ecd5f26fd,
+    type: 2}
+  coltBullet: {fileID: 1594549367490914, guid: 6ee183e9a5c421940ad41f642b96d7de, type: 2}
   coltBulletCountText: {fileID: 0}
   machineGunBulletCountText: {fileID: 0}
   isColte: 0

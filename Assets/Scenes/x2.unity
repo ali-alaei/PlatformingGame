@@ -221,7 +221,7 @@ Prefab:
       objectReference: {fileID: 764958646}
     - target: {fileID: 114934318476621736, guid: 65153d49630fd38409f60530f502523a,
         type: 2}
-      propertyPath: countText
+      propertyPath: coltBulletCountText
       value: 
       objectReference: {fileID: 764958646}
     - target: {fileID: 114934318476621736, guid: 65153d49630fd38409f60530f502523a,
@@ -229,14 +229,7 @@ Prefab:
       propertyPath: machineGunBulletCountText
       value: 
       objectReference: {fileID: 1939470898}
-    - target: {fileID: 114934318476621736, guid: 65153d49630fd38409f60530f502523a,
-        type: 2}
-      propertyPath: coltBulletCountText
-      value: 
-      objectReference: {fileID: 764958646}
-    m_RemovedComponents:
-    - {fileID: 114307976300745066, guid: 65153d49630fd38409f60530f502523a, type: 2}
-    - {fileID: 114736798426799122, guid: 65153d49630fd38409f60530f502523a, type: 2}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65153d49630fd38409f60530f502523a, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &110622644
@@ -3905,8 +3898,8 @@ GameObject:
   - component: {fileID: 1142646834}
   - component: {fileID: 1142646833}
   m_Layer: 11
-  m_Name: ArmouryBox (1)
-  m_TagString: armouryBox
+  m_Name: MachineGunArmouryBox
+  m_TagString: MachineGunArmouryBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3922,7 +3915,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8cbd859f4ba014599d0f6baa990e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countText: {fileID: 764958646}
+  coltBulletCountText: {fileID: 764958646}
+  machineGunBulletCountText: {fileID: 1939470898}
 --- !u!61 &1142646834
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3939,7 +3933,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.52, y: 2.88}
+    oldSize: {x: 7.08, y: 7.35}
     newSize: {x: 1.28, y: 1.28}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -3980,7 +3974,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f28cca3aa9289483b8160967b37ef4c5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 28add7263e3ab3c4e81e0fd838137ee7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3997,8 +3991,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1142646832}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -8.13, y: -1.67, z: 0}
-  m_LocalScale: {x: 0.6062309, y: 0.60717183, z: 1}
+  m_LocalPosition: {x: -7.429, y: -0.932, z: 0}
+  m_LocalScale: {x: 0.4081106, y: 0.406285, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 16
@@ -4066,27 +4060,6 @@ Prefab:
     - {fileID: 114220469611660196, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &1172459063 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1302033128990652, guid: 65153d49630fd38409f60530f502523a,
-    type: 2}
-  m_PrefabInternal: {fileID: 86491060}
---- !u!114 &1172459065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1172459063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278380d6e78c78a4ca4fa474f26096fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedWeapon: 0
-  machineGunBullet: {fileID: 1459503794040876, guid: 9f9ac6890c2e91e4bac8b12ecd5f26fd,
-    type: 2}
-  coltBullet: {fileID: 1594549367490914, guid: 6ee183e9a5c421940ad41f642b96d7de, type: 2}
-  isColt: 0
 --- !u!1 &1177221324 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1690441808338118, guid: bb5f90a418376cc47945dbc5ab5da4e7,
@@ -4745,8 +4718,8 @@ GameObject:
   - component: {fileID: 1364221222}
   - component: {fileID: 1364221221}
   m_Layer: 11
-  m_Name: ArmouryBox
-  m_TagString: armouryBox
+  m_Name: ColtArmouryBox
+  m_TagString: ColtArmouryBox
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4762,7 +4735,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a8cbd859f4ba014599d0f6baa990e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countText: {fileID: 764958646}
+  coltBulletCountText: {fileID: 764958646}
+  machineGunBulletCountText: {fileID: 1939470898}
 --- !u!61 &1364221222
 BoxCollider2D:
   m_ObjectHideFlags: 0

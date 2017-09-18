@@ -18,10 +18,10 @@ public class PlayerMovement : MonoBehaviour
     float hInput = 0;
     float jInput = 0;
 
-    public Text countText;
+    
      
 
-    private int count = 5;
+   
    
 
     void Start()
@@ -36,8 +36,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        
-        count = Convert.ToInt32(countText.text); 
+         
     }
 
     void FixedUpdate()

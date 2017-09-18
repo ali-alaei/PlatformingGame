@@ -6,14 +6,27 @@ public class WeaponSwithcing : MonoBehaviour {
 
     public int selectedWeapon = 0;
     PlayerShooting playershoot;
-    public GameObject machineGunBullet;
-    public GameObject coltBullet;
-    public bool isColt;
+
+    [SerializeField]
+    private bool isColt;
+
+    public bool IsColt
+    {
+        get
+        {
+            return isColt;
+        }
+
+        set
+        {
+            isColt = value;
+        }
+    }
 
     // Use this for initialization
     void Start () {
         SelectWeapon();
-        playershoot = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerShooting>();
+        
 		
 	}
 	
@@ -55,14 +68,14 @@ public class WeaponSwithcing : MonoBehaviour {
             if (selectedWeapon >= transform.childCount - 1)
             {
                 selectedWeapon = 0;
-                playershoot.bullet = machineGunBullet;
-                isColt = false;
+                //playershoot.bullet = machineGunBullet;
+                IsColt = false;
             }
             else
             {
                 selectedWeapon++;
-                playershoot.bullet = coltBullet;
-                isColt = true;
+               // playershoot.bullet = coltBullet;
+                IsColt = true;
             }
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -70,14 +83,14 @@ public class WeaponSwithcing : MonoBehaviour {
             if (selectedWeapon <= 0)
             {
                 selectedWeapon = transform.childCount - 1;
-                playershoot.bullet = coltBullet;
-                isColt = true;
+                //playershoot.bullet = coltBullet;
+                IsColt = true;
             }
             else
             {
                 selectedWeapon--;
-                playershoot.bullet = machineGunBullet;
-                isColt = false;
+                //playershoot.bullet = machineGunBullet;
+                IsColt = false;
 
             }
         }

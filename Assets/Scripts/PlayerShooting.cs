@@ -8,22 +8,28 @@ using UnityEngine.UI;
 public class PlayerShooting : MonoBehaviour {
     [SerializeField]
     private Transform firePoint;
+
     [SerializeField]
-    public GameObject bullet;
-    
+    private GameObject machineGunBullet;
+
+    [SerializeField]
+    private GameObject coltBullet;
+
     int shootInput;
 
-    WeaponSwithcing weaponSwitching;
+    WeaponSwithcing weaponType;
     public Text coltBulletCountText;
     public Text machineGunBulletCountText;
     public bool isColte;
     private int coltCounter;
     private int machineGunCounter;
 
+    
+
 
     private void Start()
     {
-        weaponSwitching = GameObject.FindGameObjectWithTag("gun").GetComponent<WeaponSwithcing>();
+        weaponType = GetComponentInChildren<WeaponSwithcing>();
     }
     // Update is called once per frame
 
@@ -31,7 +37,7 @@ public class PlayerShooting : MonoBehaviour {
     {
         coltCounter = Convert.ToInt32(coltBulletCountText.text);
         machineGunCounter = Convert.ToInt32(machineGunBulletCountText.text);
-        isColte = weaponSwitching.isColt;
+        isColte = weaponType.IsColt;
         Shoot();
         
     }
@@ -45,27 +51,34 @@ public class PlayerShooting : MonoBehaviour {
     void Shoot()
     {
 #if UNITY_EDITOR
-        if (coltCounter > 0)
+        if (coltCounter > 0 )
         {
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
-                if (isColte == true) {
+                if (isColte == true && coltCounter > 0) {
                     coltCounter--;
                     SetCountText(coltBulletCountText , coltCounter);
+                    if (transform.localScale.x > 0)
+                    {
+                        Instantiate(coltBullet, firePoint.position, Quaternion.identity);
+                    }
+                    if (transform.localScale.x < 0)
+                    {
+                        Instantiate(coltBullet, firePoint.position, Quaternion.Euler(0, 0, 180));
+                    }
                 }
-                if (isColte == false) { 
+                if (isColte == false && machineGunCounter > 0) { 
                     machineGunCounter--;
                     SetCountText(machineGunBulletCountText , machineGunCounter);
-                }
+                    if (transform.localScale.x > 0)
+                    {
+                        Instantiate(machineGunBullet, firePoint.position, Quaternion.identity);
+                    }
+                    if (transform.localScale.x < 0)
+                    {
+                        Instantiate(machineGunBullet, firePoint.position, Quaternion.Euler(0, 0, 180));
+                    }
                 
-                
-                if (transform.localScale.x > 0)
-                {
-                    Instantiate(bullet, firePoint.position, Quaternion.identity);
-                }
-                if (transform.localScale.x < 0)
-                {
-                    Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, 180));
                 }
                 //GameObject bullet_temp = Instantiate(bullet, firePoint.position, Quaternion.identity) as GameObject;
             }
@@ -84,6 +97,12 @@ public class PlayerShooting : MonoBehaviour {
                 Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, 180));
             }
             //GameObject bullet_temp = Instantiate(bullet, firePoint.position, Quaternion.identity) as GameObject;
+6
+
+
+
+        +
+
         }
 #endif
     }
