@@ -6,20 +6,24 @@ public class PlatformPlayerController : MonoBehaviour
 {
 
 
-    private PlayerMovement character;
+    private PlayerMovement playerMovement;
+    private PlayerBoundaries playerBoundaries;
     private bool jump = false;
+
+    public bool crouch = false;
+    public float horizontalMove = 0;
 
     float hInput = 0;
     float jInput = 0;
 
     private void Awake()
     {
-        character = GetComponent<PlayerMovement>();
+        playerMovement = GetComponent<PlayerMovement>();
+        playerBoundaries = GetComponent<PlayerBoundaries>();
     }
     // Update is called once per frame
 
     void Update () {
-        print(jump);
         if (!jump)
         {
             // Read the jump input in Update so button presses aren't missed.
@@ -30,13 +34,14 @@ public class PlatformPlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 #if UNITY_EDITOR
-        bool crouch = Input.GetKey(KeyCode.LeftControl);
-        float h = Input.GetAxis("Horizontal");
-        // Pass all parameters to the character control script.
-        character.Move(h, crouch, jump);
+        crouch = Input.GetKey(KeyCode.LeftControl);
+        horizontalMove = Input.GetAxis("Horizontal");
+        // Pass all parameters to the playerMovement control script.
+        playerBoundaries.CheckXY();
+        playerMovement.Move(horizontalMove, crouch, jump);
         jump = false;
 #elif UNITY_ANDROID
-        character.Move(hInput, crouch, jump);
+        playerMovement.Move(hInput, crouch, jump);
         jump = false;
 #endif
     }
