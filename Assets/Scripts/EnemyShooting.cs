@@ -7,28 +7,9 @@ public class EnemyShooting : MonoBehaviour {
 	private Transform firePoint;
 	[SerializeField]
 	private GameObject bullet;
-	//public float distance;
-	//public float telorance;
 	[SerializeField]
 	private float shootDelay;
-	//GameObject Player;
-	//EnemyMovement enemyMove;
 	public bool isShooted = false;
-	/*void Awake()
-	{
-		Player = GameObject.FindGameObjectWithTag("Player");
-	}
-	void Start()
-	{
-		enemyMove = GameObject.FindGameObjectWithTag ("Enemy").GetComponent<EnemyMovement> ();
-	}
-	void Update () {
-		if (canSeePlayer () && !isShooted) {
-			StartCoroutine (shootBullet ());
-		} else {
-			StopCoroutine (shootBullet ());
-		}
-	}*/
 	public IEnumerator shootBullet()
 	{
 		isShooted = true;
@@ -48,42 +29,4 @@ public class EnemyShooting : MonoBehaviour {
 		yield return new WaitForSeconds (shootDelay);
 		isShooted = false;
 	}
-	/*private bool canSeePlayer()
-	{
-		float forward = transform.position.x + distance;
-		float back = transform.position.x - distance;
-		if (Player.transform.position.x < forward && Player.transform.position.x > back) {
-			changeState ();
-			return true;
-		}
-		return false;
-	}
-	private bool isPlayerInPatrollingArea()
-	{
-		if (Player.transform.position.x > enemyMove.startPoint.transform.position.x && Player.transform.position.x < enemyMove.endPoint.transform.position.x) {
-			return true;
-		}
-		return false;
-	}
-	void changeState()
-	{
-		float forwardT = transform.position.x + telorance;
-		float backT = transform.position.x - telorance;
-		if (isPlayerInPatrollingArea ()) {
-			if (Player.transform.position.x > forwardT || Player.transform.position.x < backT) {
-				if (Player.transform.position.x > transform.position.x) {
-					enemyMove.flipRight ();
-				} else {
-					enemyMove.flipLeft ();
-				}
-			}
-		} else {
-			if (Player.transform.position.x < transform.position.x) {
-				enemyMove.flipLeft ();
-			} else {
-				enemyMove.flipRight ();
-			}
-		}
-	}*/
-
 }
