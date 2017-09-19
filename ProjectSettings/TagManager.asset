@@ -13,6 +13,7 @@ TagManager:
   - PlayerBullet
   - ColtArmouryBox
   - MachineGunArmouryBox
+  - UIGunImage
   layers:
   - Default
   - TransparentFX

@@ -8,9 +8,9 @@ public class WeaponSwithcing : MonoBehaviour {
     PlayerShooting playershoot;
 
     [SerializeField]
-    private bool isColt;
+    private int isColt;
 
-    public bool IsColt
+    public int IsColt
     {
         get
         {
@@ -69,13 +69,13 @@ public class WeaponSwithcing : MonoBehaviour {
             {
                 selectedWeapon = 0;
                 //playershoot.bullet = machineGunBullet;
-                IsColt = false;
+                IsColt = 0;
             }
             else
             {
                 selectedWeapon++;
                // playershoot.bullet = coltBullet;
-                IsColt = true;
+                IsColt = 1;
             }
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -84,13 +84,13 @@ public class WeaponSwithcing : MonoBehaviour {
             {
                 selectedWeapon = transform.childCount - 1;
                 //playershoot.bullet = coltBullet;
-                IsColt = true;
+                IsColt = 1;
             }
             else
             {
                 selectedWeapon--;
                 //playershoot.bullet = machineGunBullet;
-                IsColt = false;
+                IsColt = 0;
 
             }
         }

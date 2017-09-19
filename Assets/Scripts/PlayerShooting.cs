@@ -20,7 +20,7 @@ public class PlayerShooting : MonoBehaviour {
     WeaponSwithcing weaponType;
     public Text coltBulletCountText;
     public Text machineGunBulletCountText;
-    public bool isColte;
+    public int isColt;
     private int coltCounter;
     private int machineGunCounter;
 
@@ -37,7 +37,7 @@ public class PlayerShooting : MonoBehaviour {
     {
         coltCounter = Convert.ToInt32(coltBulletCountText.text);
         machineGunCounter = Convert.ToInt32(machineGunBulletCountText.text);
-        isColte = weaponType.IsColt;
+        isColt = weaponType.IsColt;
         Shoot();
         
     }
@@ -55,7 +55,7 @@ public class PlayerShooting : MonoBehaviour {
         {
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
-                if (isColte == true && coltCounter > 0) {
+                if (isColt == 1 && coltCounter > 0) {
                     coltCounter--;
                     SetCountText(coltBulletCountText , coltCounter);
                     if (transform.localScale.x > 0)
@@ -67,7 +67,7 @@ public class PlayerShooting : MonoBehaviour {
                         Instantiate(coltBullet, firePoint.position, Quaternion.Euler(0, 0, 180));
                     }
                 }
-                if (isColte == false && machineGunCounter > 0) { 
+                if (isColt == 0 && machineGunCounter > 0) { 
                     machineGunCounter--;
                     SetCountText(machineGunBulletCountText , machineGunCounter);
                     if (transform.localScale.x > 0)
