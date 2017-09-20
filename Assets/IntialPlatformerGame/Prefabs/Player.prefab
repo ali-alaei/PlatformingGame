@@ -43,7 +43,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1718153147452242
 GameObject:
   m_ObjectHideFlags: 1
@@ -53,7 +53,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4104716994632714}
   - component: {fileID: 212949515943358412}
-  - component: {fileID: 61961661534705900}
   m_Layer: 0
   m_Name: ShutGun
   m_TagString: Untagged
@@ -86,7 +85,9 @@ GameObject:
   - component: {fileID: 4957383082674672}
   - component: {fileID: 212136994582441196}
   - component: {fileID: 114934318476621736}
+  - component: {fileID: 114401791463540624}
   - component: {fileID: 114320892320022468}
+  - component: {fileID: 114475317380747978}
   - component: {fileID: 50437775884899742}
   - component: {fileID: 58767248013852438}
   - component: {fileID: 58429096387616482}
@@ -204,7 +205,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752848216535770}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.22, y: -3.5, z: 0}
+  m_LocalPosition: {x: -4.6, y: -0.69, z: 0}
   m_LocalScale: {x: 0.6, y: 0.85678804, z: 0.3998068}
   m_Children:
   - {fileID: 4979880929611050}
@@ -239,12 +240,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!58 &58429096387616482
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -300,31 +301,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.09, y: 2.03}
   m_EdgeRadius: 0
---- !u!61 &61961661534705900
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1718153147452242}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 13.36, y: 4.14}
-    newSize: {x: 13.36, y: 4.14}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 13.36, y: 4.14}
-  m_EdgeRadius: 0
 --- !u!114 &114307976300745066
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -348,18 +324,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d26acc186df7da4c84acd0c18714661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  maxVelocityChange: 10
-  jumpForce: 450
-  frictionCoefficient: 7
-  countText: {fileID: 0}
---- !u!114 &114405926340591220
+  maxSpeed: 10
+  jumpForce: 1000
+  crouchSpeed: 0.36
+  airControl: 1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  facingRight: 1
+--- !u!114 &114401791463540624
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752848216535770}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f886cb599462d48b8639bbf3970570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114405926340591220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752848216535770}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d08f91df3bd212f429df17f53ce2f364, type: 3}
   m_Name: 
@@ -376,6 +366,17 @@ MonoBehaviour:
   rightBoundary: {fileID: 0}
   upBoundary: {fileID: 0}
   downBoundary: {fileID: 0}
+--- !u!114 &114475317380747978
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752848216535770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdbc4f2e426deac469a43618e33f57a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114934318476621736
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -388,9 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 4101646017294984}
-  shutgunBullet: {fileID: 1746702913555374, guid: 10e19846b7a476c44b1927addc980a6e,
-    type: 2}
-  coltBullet: {fileID: 1594549367490914, guid: 6ee183e9a5c421940ad41f642b96d7de, type: 2}
+  bullet: {fileID: 1594549367490914, guid: f8985df8da2b8c443b927783172a9c16, type: 2}
   countText: {fileID: 0}
 --- !u!212 &212136994582441196
 SpriteRenderer:

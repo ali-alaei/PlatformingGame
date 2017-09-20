@@ -6,19 +6,19 @@ using UnityStandardAssets._2D;
 //Author : Hamed Safaei
 public class CameraController : MonoBehaviour
 {
-    public float defaultY = 0;
-    public GameObject player;
-    public int cameraHorizontalPositionProportion = 3;
-    public int cameraVerticalPositionProportion = 4;
-    public float horizontalTransitionTime = 5;
-    public float verticalTransitionTime = 5;
-    public Transform leftBoundary;
-    public Transform rightBoundary;
-    public Transform upBoundary;
-    public Transform downBoundary;
+    [SerializeField] private float defaultY = 0;
+    [SerializeField] private GameObject player;
+    [SerializeField] private int cameraHorizontalPositionProportion = 3;
+    [SerializeField] private int cameraVerticalPositionProportion = 4;
+    [SerializeField] private float horizontalTransitionTime = 5;
+    [SerializeField] private float verticalTransitionTime = 5;
+    [SerializeField] private Transform leftBoundary;
+    [SerializeField] private Transform rightBoundary;
+    [SerializeField] private Transform upBoundary;
+    [SerializeField] private Transform downBoundary;
     
 
-    private PlatformerCharacter2D playerScript;
+    private PlayerMovement playerScript;
 
     private float screenHeight;
     private float screenWidth;
@@ -35,7 +35,7 @@ public class CameraController : MonoBehaviour
 
     void Start()
     {
-        playerScript = player.GetComponent<PlatformerCharacter2D>();
+        playerScript = player.GetComponent<PlayerMovement>();
         horizontalProportion = cameraHorizontalPositionProportion*2;
         screenHeight = Camera.main.orthographicSize * 2.0f;
         screenWidth = screenHeight * Screen.width / Screen.height;
@@ -57,7 +57,7 @@ public class CameraController : MonoBehaviour
 
     private void DetermineX()
     {
-        if ((playerScript.m_FacingRight && !cameraInRight))
+        if ((playerScript.facingRight && !cameraInRight))
         {
             if (cameraMoovingHorizontally)
             {
@@ -68,7 +68,7 @@ public class CameraController : MonoBehaviour
             horizontalMoveCoroutine = StartCoroutine(MoveCameraHorizontally(true, horizontalTransitionTime));
             cameraInRight = true;
         }
-        else if (!playerScript.m_FacingRight && cameraInRight)
+        else if (!playerScript.facingRight && cameraInRight)
         {
             if (cameraMoovingHorizontally)
             {
@@ -83,7 +83,7 @@ public class CameraController : MonoBehaviour
         {
             if (!cameraMoovingHorizontally)
             {
-                targetX = player.transform.position.x + (playerScript.m_FacingRight ? (screenWidth / horizontalProportion) : -(screenWidth / horizontalProportion));
+                targetX = player.transform.position.x + (playerScript.facingRight ? (screenWidth / horizontalProportion) : -(screenWidth / horizontalProportion));
             }
         }
     }
