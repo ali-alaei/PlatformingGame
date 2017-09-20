@@ -51,10 +51,23 @@ public class PlayerShooting : MonoBehaviour {
     void Shoot()
     {
 #if UNITY_EDITOR
-        if (coltCounter > 0 )
-        {
+        
             if (Input.GetKeyDown(KeyCode.LeftControl))
             {
+                if (isColt == 0 && machineGunCounter > 0)
+                {
+                    machineGunCounter--;
+                    SetCountText(machineGunBulletCountText, machineGunCounter);
+                    if (transform.localScale.x > 0)
+                    {
+                        Instantiate(machineGunBullet, firePoint.position, Quaternion.identity);
+                    }
+                    if (transform.localScale.x < 0)
+                    {
+                        Instantiate(machineGunBullet, firePoint.position, Quaternion.Euler(0, 0, 180));
+                    }
+
+                }
                 if (isColt == 1 && coltCounter > 0) {
                     coltCounter--;
                     SetCountText(coltBulletCountText , coltCounter);
@@ -67,21 +80,11 @@ public class PlayerShooting : MonoBehaviour {
                         Instantiate(coltBullet, firePoint.position, Quaternion.Euler(0, 0, 180));
                     }
                 }
-                if (isColt == 0 && machineGunCounter > 0) { 
-                    machineGunCounter--;
-                    SetCountText(machineGunBulletCountText , machineGunCounter);
-                    if (transform.localScale.x > 0)
-                    {
-                        Instantiate(machineGunBullet, firePoint.position, Quaternion.identity);
-                    }
-                    if (transform.localScale.x < 0)
-                    {
-                        Instantiate(machineGunBullet, firePoint.position, Quaternion.Euler(0, 0, 180));
-                    }
                 
-                }
+
+                
                 //GameObject bullet_temp = Instantiate(bullet, firePoint.position, Quaternion.identity) as GameObject;
-            }
+            
         }
 #elif UNITY_ANDROID
         if (shootInput == 1)
