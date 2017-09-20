@@ -81,11 +81,11 @@ public class PlayerShooting : MonoBehaviour {
             SetCountText();
             if (transform.localScale.x > 0)
             {
-                Instantiate(bullet, firePoint.position, Quaternion.identity);
+                Instantiate(coltBullet, firePoint.position, Quaternion.identity);
             }
             if (transform.localScale.x < 0)
             {
-                Instantiate(bullet, firePoint.position, Quaternion.Euler(0, 0, 180));
+                Instantiate(coltBullet, firePoint.position, Quaternion.Euler(0, 0, 180));
             }
             //GameObject bullet_temp = Instantiate(bullet, firePoint.position, Quaternion.identity) as GameObject;
         }

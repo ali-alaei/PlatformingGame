@@ -72,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (grounded && jump)
         {
             // Add a vertical force to the player.
+
             grounded = false;            
             rigidBody2d.AddForce(new Vector2(0f, jumpForce));        }
     }
@@ -84,13 +85,5 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    public void StartMoving(float horizonalInput)
-    {
-        hInput = horizonalInput;
-    }
-
-    public void StartJumping(float jumpInput)
-    {
-        jInput = jumpInput;
-    }
+    
 }
