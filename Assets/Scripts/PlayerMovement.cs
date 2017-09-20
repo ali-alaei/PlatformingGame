@@ -26,8 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         groundCheck = transform.Find("GroundCheck");
-        ceilingCheck = transform.Find("CeilingCheck");
-    
+        ceilingCheck = transform.Find("CeilingCheck");   
         rigidBody2d = GetComponent<Rigidbody2D>();
         rigidBody2d.freezeRotation = true;
     }
