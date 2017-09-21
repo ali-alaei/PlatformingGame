@@ -14,6 +14,7 @@ TagManager:
   - PlayerBullet
   - PlayerDetector
   - PlayerEnemyDetector
+  - Pillar
   layers:
   - Default
   - TransparentFX

@@ -1,14 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class EnemyPlayerDetector : MonoBehaviour {
 	BoxCollider2D col;
 	EnemyMovement enemyMove;
 	EnemyShooting enemyShoot;
-	[SerializeField]
 	private float lastSpeed;
-	public bool isGone = false;
+	private bool isGone = false;
+    [SerializeField]
+    private Transform eyes;
+    private Vector2 direction;
 	void Awake()
 	{
 		col = gameObject.GetComponent<BoxCollider2D> ();
@@ -19,6 +22,14 @@ public class EnemyPlayerDetector : MonoBehaviour {
 
     void Update()
     {
+        if (enemyMove.speed > 0)
+        {
+            direction=Vector2.right;
+        }
+        else
+        {
+            direction = Vector2.left;
+        }
         shoot(isGone);
     }
 	void OnTriggerEnter2D(Collider2D other)
@@ -32,9 +43,13 @@ public class EnemyPlayerDetector : MonoBehaviour {
 
     void shoot(bool isGone)
     {
-        if (!enemyShoot.isShooted && isGone)
+        RaycastHit2D hit = Physics2D.Raycast(eyes.position, direction, 4.5f);
+        if (hit.collider.gameObject.CompareTag("PlayerEnemyDetector"))
         {
-            StartCoroutine(enemyShoot.shootBullet());
+            if (!enemyShoot.isShooted && isGone)
+            {
+                StartCoroutine(enemyShoot.shootBullet());
+            }
         }
     }
 
