@@ -30,7 +30,10 @@ public class EnemyPlayerDetector : MonoBehaviour {
         {
             direction = Vector2.left;
         }
-        shoot(isGone);
+        if (isGone)
+        {
+            shoot(isGone);
+        }
     }
 	void OnTriggerEnter2D(Collider2D other)
 	{
