@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour {
     //public delegate void ClickAction();
     //public static event ClickAction Destroying;
 
-    
+    //HealthBox healthbox;
     public Image image;
     private float maxHealth = 100f;
     private float curHealth = 0f;
@@ -38,7 +38,7 @@ public class PlayerHealth : MonoBehaviour {
     {
         if (curHealth < 100)
         {
-            curHealth += 20f;
+            curHealth += 20;//healthBox.health
             float calchealth = curHealth / maxHealth;
             setHealth(calchealth);
             //Destroying();

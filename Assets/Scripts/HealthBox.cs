@@ -7,21 +7,22 @@ public class HealthBox : MonoBehaviour {
     public delegate float ClickAction();
     public static event ClickAction HealthUp;
 
-    [SerializeField]
-    private int health;
+    public int health;
+    //[SerializeField]
+    //private int health;
 
-    public int Health
-    {
-        get
-        {
-            return health;
-        }
+    //public int Health
+    //{
+    //    get
+    //    {
+    //        return health;
+    //    }
 
-        set
-        {
-            health = value;
-        }
-    }
+    //    set
+    //    {
+    //        health = value;
+    //    }
+    //}
 
     //public Image image;
     //private float maxHealth = 100f;
