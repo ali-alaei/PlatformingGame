@@ -26,8 +26,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         groundCheck = transform.Find("GroundCheck");
-        ceilingCheck = transform.Find("CeilingCheck");
-    
+        ceilingCheck = transform.Find("CeilingCheck");   
         rigidBody2d = GetComponent<Rigidbody2D>();
         rigidBody2d.freezeRotation = true;
     }
@@ -73,6 +72,7 @@ public class PlayerMovement : MonoBehaviour
         if (grounded && jump)
         {
             // Add a vertical force to the player.
+
             grounded = false;            
             rigidBody2d.AddForce(new Vector2(0f, jumpForce));        }
     }
@@ -85,13 +85,5 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = theScale;
     }
 
-    public void StartMoving(float horizonalInput)
-    {
-        hInput = horizonalInput;
-    }
-
-    public void StartJumping(float jumpInput)
-    {
-        jInput = jumpInput;
-    }
+    
 }

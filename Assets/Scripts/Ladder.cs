@@ -24,11 +24,11 @@ public class Ladder : MonoBehaviour {
         { 
             
 		} else {
-			Vector2 Velo = coll.GetComponent<Rigidbody2D> ().velocity;
-			Velo.y = 0.2175999805331f;
-			coll.GetComponent<Rigidbody2D> ().velocity = Velo;
+            Vector2 Velo = coll.GetComponent<Rigidbody2D>().velocity;
+            Velo.y = 0.2175999805331f;
+            coll.GetComponent<Rigidbody2D>().velocity = Velo;
 
-			coll.GetComponent<Rigidbody2D> ().AddForce(new Vector2( 0, coll.GetComponent<Rigidbody2D> ().mass * 9.81f ));
-		}
+            coll.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, coll.GetComponent<Rigidbody2D>().mass * 9.81f));
+        }
 	}
 }

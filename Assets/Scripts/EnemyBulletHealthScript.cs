@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BulletHealthScript : MonoBehaviour {
+public class EnemyBulletHealthScript : MonoBehaviour {
 
     public Image image;
     private float maxHealth = 100f;
@@ -22,7 +22,7 @@ public class BulletHealthScript : MonoBehaviour {
     }
     void OnCollisionEnter2D(Collision2D coll)
     {
-        if (coll.gameObject.CompareTag("player"))
+        if (coll.gameObject.CompareTag("Player"))
         {
 
             decreeaseHealth();
