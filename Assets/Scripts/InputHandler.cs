@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputHandler : MonoBehaviour {
 
+    public static InputHandler Instance; 
     bool crouch;
     bool jump;
     bool up;
@@ -12,44 +13,121 @@ public class InputHandler : MonoBehaviour {
     bool left;
     bool changeWeapon;
     bool shoot;
-    
-    public void ActiveJumpBtn()
+
+    private void Awake()
     {
-        jump = true;
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+#if UNITY_ANDROID
+
+    public void ActiveJumpBtn(bool jmp)
+    {
+        jump = jmp;
     }
 
-    public void ActiveCrouchBtn()
+    public void ActiveCrouchBtn(bool crh)
     {
-        crouch = true;
+        crouch = crh;
     }
 
     public void ActiveUpBtn(bool up)
     {
-        up = true;
-    }
-    public void ActiveDownBtn()
-    {
-        down = true;
+        this.up = up;
     }
 
-    public void ActiveLeftBtn()
+    public void ActiveDownBtn(bool down)
     {
-        left = true;
+        this.down = down;
     }
 
-    public void ActiveRightBtn()
+    public void ActiveLeftBtn(bool left)
     {
-        right = true;
+        this.left = left;
     }
 
-    public void ActiveChangeWeaponBtn()
+    public void ActiveRightBtn(bool right)
     {
-        changeWeapon = true;
+        this.right = right;
     }
 
-    public void ActiveShootBtn()
+    public void ActiveChangeWeaponBtn(bool changeWeapon)
     {
-        shoot = true;
+        this.changeWeapon = changeWeapon;
     }
-    
+
+    public void ActiveShootBtn(bool shoot)
+    {
+        this.shoot = shoot;
+    }
+
+#elif UNITY_EDITOR
+    private void Update()
+    {
+        jump = Input.GetButtonDown("Jump");
+        float horizontalMove = Input.GetAxis("Horizontal");
+        if (horizontalMove < 0)
+        {
+            left = true;
+        }
+        else if (horizontalMove > 0)
+        {
+            right = true;
+        }
+        crouch = Input.GetKey(KeyCode.LeftShift);
+        shoot = Input.GetKeyDown(KeyCode.LeftControl);
+
+    }
+#endif
+    ///////////////////////////////////////////////////////////////////////// 
+
+    public bool GetJumpBTn()
+    {
+        return this.jump;
+    }
+
+    public bool GetCrouchBTn()
+    {
+        return this.crouch;
+    }
+
+    public bool GetUpBTn()
+    {
+        return this.up;
+    }
+
+    public bool GetDownBTn()
+    {
+        return this.down;
+    }
+
+    public bool GetLeftBTn()
+    {
+        return this.left;
+    }
+
+    public bool GetRightBTn()
+    {
+        return this.right;
+    }
+
+    public bool GetChangeWeaponBTn()
+    {
+        return this.changeWeapon;
+    }
+
+    public bool GetShootBTn()
+    {
+        return this.shoot;
+    }
+
+
+
 }

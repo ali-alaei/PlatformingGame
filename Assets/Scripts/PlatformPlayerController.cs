@@ -34,7 +34,7 @@ public class PlatformPlayerController : MonoBehaviour
     private void FixedUpdate()
     {
 #if UNITY_EDITOR
-        crouch = Input.GetKey(KeyCode.LeftControl);
+        crouch = Input.GetKey(KeyCode.LeftShift);
         horizontalMove = Input.GetAxis("Horizontal");
         // Pass all parameters to the playerMovement control script.
         playerBoundaries.CheckXY();
