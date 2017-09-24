@@ -164,11 +164,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4957383082674672, guid: 65153d49630fd38409f60530f502523a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.6
+      value: 76.65
       objectReference: {fileID: 0}
     - target: {fileID: 4957383082674672, guid: 65153d49630fd38409f60530f502523a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.69
+      value: 0.14
       objectReference: {fileID: 0}
     - target: {fileID: 4957383082674672, guid: 65153d49630fd38409f60530f502523a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -194,26 +194,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114405926340591220, guid: 65153d49630fd38409f60530f502523a,
+    - target: {fileID: 114138390382000728, guid: 65153d49630fd38409f60530f502523a,
         type: 2}
-      propertyPath: leftBoundary
+      propertyPath: image
       value: 
-      objectReference: {fileID: 1906401614}
-    - target: {fileID: 114405926340591220, guid: 65153d49630fd38409f60530f502523a,
-        type: 2}
-      propertyPath: rightBoundary
-      value: 
-      objectReference: {fileID: 1945272687}
-    - target: {fileID: 114405926340591220, guid: 65153d49630fd38409f60530f502523a,
-        type: 2}
-      propertyPath: upBoundary
-      value: 
-      objectReference: {fileID: 1120284557}
-    - target: {fileID: 114405926340591220, guid: 65153d49630fd38409f60530f502523a,
-        type: 2}
-      propertyPath: downBoundary
-      value: 
-      objectReference: {fileID: 635341289}
+      objectReference: {fileID: 1858520173}
     - target: {fileID: 114191865556536190, guid: 65153d49630fd38409f60530f502523a,
         type: 2}
       propertyPath: colt
@@ -244,6 +229,26 @@ Prefab:
       propertyPath: machineGunBulletCounter
       value: 
       objectReference: {fileID: 1961084336}
+    - target: {fileID: 114405926340591220, guid: 65153d49630fd38409f60530f502523a,
+        type: 2}
+      propertyPath: leftBoundary
+      value: 
+      objectReference: {fileID: 1906401614}
+    - target: {fileID: 114405926340591220, guid: 65153d49630fd38409f60530f502523a,
+        type: 2}
+      propertyPath: rightBoundary
+      value: 
+      objectReference: {fileID: 1945272687}
+    - target: {fileID: 114405926340591220, guid: 65153d49630fd38409f60530f502523a,
+        type: 2}
+      propertyPath: upBoundary
+      value: 
+      objectReference: {fileID: 1120284557}
+    - target: {fileID: 114405926340591220, guid: 65153d49630fd38409f60530f502523a,
+        type: 2}
+      propertyPath: downBoundary
+      value: 
+      objectReference: {fileID: 635341289}
     - target: {fileID: 114934318476621736, guid: 65153d49630fd38409f60530f502523a,
         type: 2}
       propertyPath: coltBulletCountText
@@ -254,11 +259,6 @@ Prefab:
       propertyPath: machineGunBulletCountText
       value: 
       objectReference: {fileID: 1939470898}
-    - target: {fileID: 114138390382000728, guid: 65153d49630fd38409f60530f502523a,
-        type: 2}
-      propertyPath: image
-      value: 
-      objectReference: {fileID: 1858520173}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 65153d49630fd38409f60530f502523a, type: 2}
   m_IsPrefabParent: 0
@@ -826,6 +826,7 @@ GameObject:
   - component: {fileID: 265820936}
   - component: {fileID: 265820934}
   - component: {fileID: 265820935}
+  - component: {fileID: 265820939}
   m_Layer: 12
   m_Name: Elevator
   m_TagString: Elevator
@@ -892,7 +893,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.011684269, y: -0.08}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -903,7 +904,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.0077894, y: 1.1557884}
   m_EdgeRadius: 0
 --- !u!33 &265820937
 MeshFilter:
@@ -925,6 +926,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &265820939
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 265820933}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0066069365, y: 2.520465}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5826192, y: 21.004362}
+  m_EdgeRadius: 0
 --- !u!1 &282488119
 GameObject:
   m_ObjectHideFlags: 0
@@ -3389,6 +3415,7 @@ GameObject:
   - component: {fileID: 946472505}
   - component: {fileID: 946472504}
   - component: {fileID: 946472503}
+  - component: {fileID: 946472508}
   m_Layer: 12
   m_Name: Elevator (1)
   m_TagString: Elevator
@@ -3489,6 +3516,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &946472508
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 946472502}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0042226315, y: 0.9481888}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5911324, y: 43.92814}
+  m_EdgeRadius: 0
 --- !u!1 &953266178
 GameObject:
   m_ObjectHideFlags: 0
@@ -5242,11 +5294,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4242853647662770, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 38.43
+      value: 35.02
       objectReference: {fileID: 0}
     - target: {fileID: 4242853647662770, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 7.7
+      value: 7.89
       objectReference: {fileID: 0}
     - target: {fileID: 4242853647662770, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5275,6 +5327,11 @@ Prefab:
     - target: {fileID: 1690441808338118, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
       propertyPath: m_Name
       value: Box (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 61431832031583896, guid: bb5f90a418376cc47945dbc5ab5da4e7,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 1.05
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114220469611660196, guid: bb5f90a418376cc47945dbc5ab5da4e7, type: 2}
@@ -6491,7 +6548,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0.19
+  m_FillAmount: 0.38
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!1001 &1886030636

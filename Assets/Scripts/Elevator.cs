@@ -2,52 +2,34 @@
 using System.Collections;
 
 public class Elevator : MonoBehaviour {
-	public Transform[] point;
-	public float speed = 5f;
+
+    //[SerializeField]
+    //private Collider2D Player;
+    //[SerializeField]
+    //private BoxCollider2D region;
+    [SerializeField]
+	private Transform[] point;
+    
+    public float speed = 5f;
 	private Transform _myTransform;
-	private bool isGetOn;
+	private bool _isGetOn = false;
 	private bool _upstair;
 	private bool _downstair;
 	private int _stage;
 	void Start () {
 		_myTransform = this.transform;
 	}
-	void FixedUpdate() {
+    void Update() {
 
         Elevating();
-
-		/*
-		if (_myTransform.position == origin.position) {
-
-			_switching = false;
-		}
-
-
-		if (_switching == false) {
-
-			_myTransform.position = Vector3.MoveTowards (_myTransform.position, destination.position, 5 * Time.deltaTime);
-
-		}
-
-
-		if (_myTransform.position == destination.position) {
-
-			_switching = false;
-
-		}
-
-		if (_switching == false) {
-
-			_myTransform.position = Vector3.MoveTowards (_myTransform.position, origin.position, 5 * Time.deltaTime);
-
-		}*/
-	
-	}
-
+    }
+        
     void Elevating()
     {
-        if(isGetOn == true)
+        //print(_isGetOn);
+        if (_isGetOn == true)
         {
+            
             if (Input.GetKeyDown(KeyCode.F))
             {
                 _stage = 0;
@@ -79,28 +61,57 @@ public class Elevator : MonoBehaviour {
         }
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    private void OnTriggerStay2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Player"))
         {
-            isGetOn = true;
+            _isGetOn = true;
         }
     }
-    private void OnCollisionStay(Collision coll)
+
+    private void OnTriggerExit2D(Collider2D coll)
     {
         if (coll.gameObject.CompareTag("Player"))
         {
-            isGetOn = true;
+            _isGetOn = false;
         }
     }
-    void OnCollisionExit2D(Collision2D coll)
-    {
-        if (coll.gameObject.CompareTag("Player"))
-        {
-            isGetOn = false;
-        }
-        
-    }
+
+    //bool isGetOn()
+    //{
+    //    if ()
+    //    {
+    //        return true;
+    //    }
+    //    else
+    //    {
+    //        return false;
+    //    }
+    //}
+
+    //void OnCollisionEnter2D(Collision2D coll)
+    //{
+    //    if (coll.gameObject.CompareTag("Player"))
+    //    {
+    //        isGetOn = true;
+
+    //    }
+    //}
+    //private void OnCollisionStay(Collision coll)
+    //{
+    //    if (coll.gameObject.CompareTag("Player"))
+    //    {
+    //        isGetOn = true;
+    //    }
+    //}
+    //void OnCollisionExit2D(Collision2D coll)
+    //{
+    //    if (coll.gameObject.CompareTag("Player"))
+    //    {
+    //        isGetOn = false;
+    //    }
+
+    //}
 
 
 }
