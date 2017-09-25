@@ -11,7 +11,7 @@ public class InputHandler : MonoBehaviour {
     bool down;
     bool right;
     bool left;
-    bool changeWeapon;
+    float changeWeapon;
     bool shoot;
 
     private void Awake()
@@ -26,11 +26,10 @@ public class InputHandler : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-#if UNITY_ANDROID
-
+    //Only for Canvas Buttons
     public void ActiveJumpBtn(bool jmp)
     {
-        jump = jmp;
+        this.jump = jmp;
     }
 
     public void ActiveCrouchBtn(bool crh)
@@ -58,7 +57,7 @@ public class InputHandler : MonoBehaviour {
         this.right = right;
     }
 
-    public void ActiveChangeWeaponBtn(bool changeWeapon)
+    public void ActiveChangeWeaponBtn(float changeWeapon)
     {
         this.changeWeapon = changeWeapon;
     }
@@ -67,10 +66,12 @@ public class InputHandler : MonoBehaviour {
     {
         this.shoot = shoot;
     }
+    //End of Canvas Buttons
 
-#elif UNITY_EDITOR
+    //Editor Script
     private void Update()
     {
+        changeWeapon = Input.GetAxis("Mouse ScrollWheel");
         jump = Input.GetButtonDown("Jump");
         float horizontalMove = Input.GetAxis("Horizontal");
         if (horizontalMove < 0)
@@ -81,12 +82,15 @@ public class InputHandler : MonoBehaviour {
         {
             right = true;
         }
+        else
+        {
+            right = false;
+            left = false;
+        }
         crouch = Input.GetKey(KeyCode.LeftShift);
         shoot = Input.GetKeyDown(KeyCode.LeftControl);
-
     }
-#endif
-    ///////////////////////////////////////////////////////////////////////// 
+    //End of Editor Script
 
     public bool GetJumpBTn()
     {
@@ -118,7 +122,7 @@ public class InputHandler : MonoBehaviour {
         return this.right;
     }
 
-    public bool GetChangeWeaponBTn()
+    public float GetChangeWeaponBTn()
     {
         return this.changeWeapon;
     }

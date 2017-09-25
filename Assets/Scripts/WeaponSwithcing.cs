@@ -47,7 +47,7 @@ public class WeaponSwithcing : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update () {        
         int previousSelectedWeapon = selectedWeapon;
 #if UNITY_EDITOR
         SwitchWeapon();
@@ -77,7 +77,7 @@ public class WeaponSwithcing : MonoBehaviour {
 
     void SwitchWeapon()
     {
-        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
+        if (InputHandler.Instance.GetChangeWeaponBTn() > 0f)
         {
             if (selectedWeapon >= transform.childCount - 1)
             {
@@ -89,7 +89,7 @@ public class WeaponSwithcing : MonoBehaviour {
                 selectedWeapon++;
             }
         }
-        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
+        if (InputHandler.Instance.GetChangeWeaponBTn() < 0f)
         {
             if (selectedWeapon <= 0)
             {
@@ -100,6 +100,8 @@ public class WeaponSwithcing : MonoBehaviour {
                 selectedWeapon--;
             }
         }
+
+        InputHandler.Instance.ActiveChangeWeaponBtn(0);
     }
 
     void SelectWeapon()
