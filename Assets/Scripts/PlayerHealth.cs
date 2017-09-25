@@ -21,6 +21,7 @@ public class PlayerHealth : MonoBehaviour {
      
     void Update () {
         curHealth = image.fillAmount * 100;
+        Death();
     }
 
     private void OnEnable()
@@ -63,6 +64,14 @@ public class PlayerHealth : MonoBehaviour {
     void setHealth(float myHealth)
     {
         image.fillAmount = myHealth;
+    }
+
+    void Death()
+    {
+        if(curHealth == 0)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
     }
 
 }
