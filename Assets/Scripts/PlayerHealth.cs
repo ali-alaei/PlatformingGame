@@ -26,11 +26,13 @@ public class PlayerHealth : MonoBehaviour {
     private void OnEnable()
     {
         HealthBox.HealthUp += increasehealth;
+        EnemyBulletController.HealthDown += decreasehealth;
     }
 
     private void OnDisable()
     {
         HealthBox.HealthUp -= increasehealth;
+        EnemyBulletController.HealthDown -= decreasehealth;
     }
 
 
@@ -39,6 +41,18 @@ public class PlayerHealth : MonoBehaviour {
         if (curHealth < 100)
         {
             curHealth += 20;//healthBox.health
+            float calchealth = curHealth / maxHealth;
+            setHealth(calchealth);
+            //Destroying();
+        }
+        return image.fillAmount;
+    }
+
+    float decreasehealth()
+    {
+        if (curHealth > 0)
+        {
+            curHealth -= 20;//healthBox.health
             float calchealth = curHealth / maxHealth;
             setHealth(calchealth);
             //Destroying();

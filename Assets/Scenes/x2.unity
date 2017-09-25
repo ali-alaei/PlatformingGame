@@ -164,11 +164,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4957383082674672, guid: 65153d49630fd38409f60530f502523a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 76.65
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 4957383082674672, guid: 65153d49630fd38409f60530f502523a, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.14
+      value: -0.7
       objectReference: {fileID: 0}
     - target: {fileID: 4957383082674672, guid: 65153d49630fd38409f60530f502523a, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6548,7 +6548,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 1
-  m_FillAmount: 0.38
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
 --- !u!1001 &1886030636

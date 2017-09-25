@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine; 
 ////Milad Ebrahimi
 public class EnemyBulletController : MonoBehaviour 
-{ 
-	public float speed; 
+{
+    public delegate float Action();
+    public static event Action HealthDown;
+
+    public float speed;
 
 	private Rigidbody2D myRigidBody;
 	Time start ;
@@ -27,5 +30,14 @@ public class EnemyBulletController : MonoBehaviour
 		Destroy (gameObject,3f);
 	}
 
+    //aryana seyed peyrovy
+    private void OnTriggerEnter2D(Collider2D coll)
+    {
+        if (coll.gameObject.CompareTag("Player"))
+        {
+            HealthDown();
+            Destroy(gameObject);
+        }
+    }
 
 } 
