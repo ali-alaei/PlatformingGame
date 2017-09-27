@@ -44,7 +44,7 @@ public class PlayerShooting : MonoBehaviour {
 #if UNITY_EDITOR
         if (count > 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftControl) && weaponType.ColtSelected)
+            if (InputHandler.Instance.GetShootBTn() && weaponType.ColtSelected)
             {
                 count--;
                 SetCountText();
@@ -59,7 +59,7 @@ public class PlayerShooting : MonoBehaviour {
                 //GameObject bullet_temp = Instantiate(bullet, firePoint.position, Quaternion.identity) as GameObject;
             }
 
-            else if (Input.GetKeyDown(KeyCode.LeftControl) && weaponType.ShutgunSelected)
+            else if (InputHandler.Instance.GetShootBTn() && weaponType.ShutgunSelected)
             {
                 count--;
                 SetCountText();
@@ -73,6 +73,7 @@ public class PlayerShooting : MonoBehaviour {
                 }
                 //GameObject bullet_temp = Instantiate(bullet, firePoint.position, Quaternion.identity) as GameObject;
             }
+            InputHandler.Instance.ActiveShootBtn(false);
         }
 #elif UNITY_ANDROID
         if (shootInput == 1)

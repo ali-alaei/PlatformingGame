@@ -13,9 +13,6 @@ public class PlatformPlayerController : MonoBehaviour
     public bool crouch = false;
     public float horizontalMove = 0;
 
-    float hInput = 0;
-    float jInput = 0;
-
     private void Awake()
     {
         playerMovement = GetComponent<PlayerMovement>();
@@ -24,35 +21,22 @@ public class PlatformPlayerController : MonoBehaviour
     // Update is called once per frame
 
     void Update () {
-        if (!jump)
+        /**if (!jump)
         {
             // Read the jump input in Update so button presses aren't missed.
             jump = Input.GetButtonDown("Jump");
-        }
+        }**/
     }
 
     private void FixedUpdate()
     {
-#if UNITY_EDITOR
-        crouch = Input.GetKey(KeyCode.LeftShift);
+        crouch = Input.GetKey(KeyCode.LeftControl);
         horizontalMove = Input.GetAxis("Horizontal");
         // Pass all parameters to the playerMovement control script.
         playerBoundaries.CheckXY();
-        playerMovement.Move(horizontalMove, crouch, jump);
+        playerMovement.Move(InputHandler.Instance.GetRightBTn(), InputHandler.Instance.GetLeftBTn(), InputHandler.Instance.GetCrouchBTn(), InputHandler.Instance.GetJumpBTn());
+        //InputHandler.Instance.ActiveJumpBtn(false);
         jump = false;
-#elif UNITY_ANDROID
-        playerMovement.Move(hInput, crouch, jump);
-        jump = false;
-#endif
     }
 
-    public void StartMoving(float horizonalInput)
-    {
-        hInput = horizonalInput;
-    }
-
-    public void StartJumping()
-    {
-        jump = true;
-    }
 }

@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
 
     [SerializeField] private float maxSpeed = 10f;
-    [SerializeField] private float jumpForce = 400f;
+    [SerializeField] private float jumpForce;
     [Range(0, 1)] [SerializeField] private float crouchSpeed = .36f;
     [SerializeField] private bool airControl = false;
     [SerializeField] private LayerMask whatIsGround;
@@ -20,9 +20,8 @@ public class PlayerMovement : MonoBehaviour
     const float ceilingRadius = .01f;
     [HideInInspector] public bool facingRight = true;
     private Rigidbody2D rigidBody2d;
+    private float move;
 
-    float hInput = 0;
-    float jInput = 0;
     void Awake()
     {
         groundCheck = transform.Find("GroundCheck");
@@ -32,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        print(grounded);
         grounded = false;
         Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheck.position, groundedRadius, whatIsGround);
         for (int i = 0; i < colliders.Length; i++)
@@ -40,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
                 grounded = true;
         }
     }
-    public void Move(float move, bool crouch, bool jump)
+    public void Move(bool right, bool left, bool crouch, bool jump)
     {
         /**if (!crouch && Physics2D.OverlapCircle(ceilingCheck.position, ceilingRadius, whatIsGround))
         {
@@ -48,6 +48,13 @@ public class PlayerMovement : MonoBehaviour
             crouch = true;
         }**/
 
+        if (right)
+            move = 1;
+        else if (left)
+            move = -1;
+        else
+            move = 0;
+        
         if (grounded || airControl)
         {
             // Reduce the speed if crouching by the crouchSpeed multiplier
@@ -74,7 +81,8 @@ public class PlayerMovement : MonoBehaviour
             // Add a vertical force to the player.
 
             grounded = false;            
-            rigidBody2d.AddForce(new Vector2(0f, jumpForce));        }
+            rigidBody2d.AddForce(new Vector2(0f, jumpForce));
+        }
     }
 
     void Flip()
