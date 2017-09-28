@@ -5,44 +5,28 @@ using UnityEngine;
 public class WeaponSwithcing : MonoBehaviour {
 
     public int selectedWeapon = 0;
+    PlayerShooting playershoot;
 
-    private bool shutgunSelected;
+    [SerializeField]
+    private int isColt;
 
-    public bool ShutgunSelected
+    public int IsColt
     {
         get
         {
-            return shutgunSelected;
+            return isColt;
         }
 
         set
         {
-            shutgunSelected = value;
+            isColt = value;
         }
     }
-
-    private bool coltSelected;
-
-    public bool ColtSelected
-    {
-        get
-        {
-            return coltSelected;
-        }
-
-        set
-        {
-            coltSelected = value;
-        }
-    }
-
-    
-
-
 
     // Use this for initialization
     void Start () {
         SelectWeapon();
+        
 		
 	}
 	
@@ -82,11 +66,14 @@ public class WeaponSwithcing : MonoBehaviour {
             if (selectedWeapon >= transform.childCount - 1)
             {
                 selectedWeapon = 0;
-                
+                //playershoot.bullet = machineGunBullet;
+                IsColt = 0;
             }
             else
             {
                 selectedWeapon++;
+                // playershoot.bullet = coltBullet;
+                IsColt = 1;
             }
         }
         if (InputHandler.Instance.GetChangeWeaponBTn() < 0f)
@@ -94,10 +81,15 @@ public class WeaponSwithcing : MonoBehaviour {
             if (selectedWeapon <= 0)
             {
                 selectedWeapon = transform.childCount - 1;
+                //playershoot.bullet = coltBullet;
+                IsColt = 1;
             }
             else
             {
                 selectedWeapon--;
+                //playershoot.bullet = machineGunBullet;
+                IsColt = 0;
+
             }
         }
 
@@ -112,14 +104,6 @@ public class WeaponSwithcing : MonoBehaviour {
             if(i == selectedWeapon)
             {
                 weapon.gameObject.SetActive(true);
-                if (i==0)
-                {
-                    shutgunSelected = true;
-                }
-                else if (i==1)
-                {
-                    coltSelected = true;
-                }
             }
             else
             {

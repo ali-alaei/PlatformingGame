@@ -4,15 +4,18 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - gun
+  - bullet
   - Elevator
   - healthBox
-  - armouryBox
   - box
-  - bullet
-  - gun
   - Enemy
   - PlayerBullet
+  - ColtArmouryBox
+  - MachineGunArmouryBox
+  - UIGunImage
   - Bullet
+  - armouryBox
   layers:
   - Default
   - TransparentFX

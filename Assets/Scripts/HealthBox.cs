@@ -4,63 +4,88 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthBox : MonoBehaviour {
+    public delegate float ClickAction();
+    public static event ClickAction HealthUp;
 
-    public Image image;
-    private bool x;
+    public int health;
+    //[SerializeField]
+    //private int health;
 
-    private float maxHealth = 100f;
-    private float curHealth = 0f;
+    //public int Health
+    //{
+    //    get
+    //    {
+    //        return health;
+    //    }
 
-    // Use this for initialization
+    //    set
+    //    {
+    //        health = value;
+    //    }
+    //}
+
+    //public Image image;
+    //private float maxHealth = 100f;
+    //private float curHealth = 0f;
+
+
     void Start()
     {
-        curHealth = maxHealth;
+         
+        //curHealth = maxHealth;
         
     }
 
-    void Awake()
-    {
-        
-    }
-    // Update is called once per frame
+    //private void OnEnable()
+    //{
+    //    PlayerHealth.Destroying += DestroyIt;
+    //}
+
+    //private void OnDisable()
+    //{
+    //    PlayerHealth.Destroying -= DestroyIt;
+    //}
+
     void Update()
     {
-        curHealth = image.fillAmount * 100;
+        //curHealth = image.fillAmount * 100;
     }
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (curHealth < 100)
+        //if (curHealth < 100)
+        //{
+        
+        if (other.gameObject.CompareTag("Player"))
         {
-            if (other.gameObject.CompareTag("player"))
+            //increaseHealth();
+            if (HealthUp() < 1)
             {
                 Destroy(gameObject);
-                increaseHealth();
             }
+            //HealthUp();
+
         }
+    
+        //}
     }
+    
+    //void DestroyIt()
+    //{
+    //    Destroy(gameObject);
+    //}
 
-    /*void OnCollisionEnter2D(Collision2D coll)
-    {
-        if (coll.gameObject.CompareTag("bullet"))
-        {
-            
-            Destroy(gameObject);
-        }
+    //void increaseHealth()
+    //{
+    //    curHealth += 20f;
+    //    float calcHealth = curHealth / maxHealth;
+    //    setHealth(calcHealth);
+    //}
 
-    }*/
-
-    void increaseHealth()
-    {
-        curHealth += 20f;
-        float calcHealth = curHealth / maxHealth;
-        setHealth(calcHealth);
-    }
-
-    void setHealth(float myHealth)
-    {
-        image.fillAmount = myHealth;
-    }
+    //void setHealth(float myHealth)
+    //{
+    //    image.fillAmount = myHealth;
+    //}
 
 }
