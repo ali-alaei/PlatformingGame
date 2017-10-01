@@ -13,15 +13,17 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool airControl = false;
     [SerializeField] private LayerMask whatIsGround;
 
-    private Transform groundCheck;    // A position marking where to check if the player is grounded.
-    const float groundedRadius = .2f; // Radius of the overlap circle to determine if grounded
-    private bool grounded;            // Whether or not the player is grounded.
-    private Transform ceilingCheck;   // A position marking where to check for ceilings
-    const float ceilingRadius = .01f;
-    [HideInInspector] public bool facingRight = true;
-    private Rigidbody2D rigidBody2d;
-    private float move;
+    public Text countText;
+     
 
+    private int count = 5;
+   
+
+    void Start()
+    {
+        
+        
+    }
     void Awake()
     {
         groundCheck = transform.Find("GroundCheck");
@@ -29,6 +31,12 @@ public class PlayerMovement : MonoBehaviour
         rigidBody2d = GetComponent<Rigidbody2D>();
         rigidBody2d.freezeRotation = true;
     }
+    private void Update()
+    {
+        
+        count = Convert.ToInt32(countText.text); 
+    }
+
     void FixedUpdate()
     {
         print(grounded);
