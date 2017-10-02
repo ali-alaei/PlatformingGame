@@ -1240,7 +1240,7 @@ GameObject:
   - component: {fileID: 344094460}
   - component: {fileID: 344094459}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Canvas(guns and heart)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5920,6 +5920,10 @@ Prefab:
     - target: {fileID: 1960170519896910, guid: 7d3d69865779c3040b517701b7d1b9b3, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960170519896910, guid: 7d3d69865779c3040b517701b7d1b9b3, type: 2}
+      propertyPath: m_Name
+      value: Canvas(mobile input)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d3d69865779c3040b517701b7d1b9b3, type: 2}
