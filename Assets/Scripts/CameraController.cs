@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityStandardAssets._2D;
 
 //Author : Hamed Safaei
 public class CameraController : MonoBehaviour

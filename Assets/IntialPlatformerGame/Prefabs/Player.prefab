@@ -86,7 +86,9 @@ GameObject:
   - component: {fileID: 4957383082674672}
   - component: {fileID: 212136994582441196}
   - component: {fileID: 114934318476621736}
+  - component: {fileID: 114401791463540624}
   - component: {fileID: 114320892320022468}
+  - component: {fileID: 114475317380747978}
   - component: {fileID: 50437775884899742}
   - component: {fileID: 58767248013852438}
   - component: {fileID: 58429096387616482}
@@ -270,7 +272,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -396,17 +398,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d26acc186df7da4c84acd0c18714661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  maxVelocityChange: 10
-  jumpForce: 450
-  frictionCoefficient: 7
---- !u!114 &114405926340591220
+  maxSpeed: 10
+  jumpForce: 250
+  crouchSpeed: 0.36
+  airControl: 1
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  facingRight: 1
+--- !u!114 &114401791463540624
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1752848216535770}
   m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55f886cb599462d48b8639bbf3970570, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  crouch: 0
+  horizontalMove: 0
+--- !u!114 &114405926340591220
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1752848216535770}
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d08f91df3bd212f429df17f53ce2f364, type: 3}
   m_Name: 
@@ -423,19 +442,21 @@ MonoBehaviour:
   rightBoundary: {fileID: 0}
   upBoundary: {fileID: 0}
   downBoundary: {fileID: 0}
---- !u!114 &114896168000544152
+--- !u!114 &114475317380747978
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1302033128990652}
+  m_GameObject: {fileID: 1752848216535770}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 278380d6e78c78a4ca4fa474f26096fb, type: 3}
+  m_Script: {fileID: 11500000, guid: bdbc4f2e426deac469a43618e33f57a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedWeapon: 0
-  isColt: 0
+  leftBoundary: {fileID: 0}
+  rightBoundary: {fileID: 0}
+  upBoundary: {fileID: 0}
+  downBoundary: {fileID: 0}
 --- !u!114 &114934318476621736
 MonoBehaviour:
   m_ObjectHideFlags: 1
