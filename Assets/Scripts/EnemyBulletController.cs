@@ -2,7 +2,7 @@
 using System.Collections.Generic; 
 using UnityEngine; 
 ////Milad Ebrahimi
-public class BulletController : MonoBehaviour 
+public class EnemyBulletController : MonoBehaviour 
 { 
 	public float speed; 
 
@@ -27,5 +27,12 @@ public class BulletController : MonoBehaviour
 		Destroy (gameObject,3f);
 	}
 
-
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log("Entered");
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Destroy(gameObject);
+        }
+    }
 } 

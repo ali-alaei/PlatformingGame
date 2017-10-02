@@ -1,0 +1,77 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class PlayerHealth : MonoBehaviour {
+
+    //public delegate void ClickAction();
+    //public static event ClickAction Destroying;
+
+    //HealthBox healthbox;
+    public Image image;
+    private float maxHealth = 100f;
+    private float curHealth = 0f;
+
+    void Start () {
+
+        curHealth = maxHealth;
+        
+    }
+     
+    void Update () {
+        curHealth = image.fillAmount * 100;
+        Death();
+    }
+
+    private void OnEnable()
+    {
+        HealthBox.HealthUp += increasehealth;
+        EnemyBulletController.HealthDown += decreasehealth;
+    }
+
+    private void OnDisable()
+    {
+        HealthBox.HealthUp -= increasehealth;
+        EnemyBulletController.HealthDown -= decreasehealth;
+    }
+
+
+    float increasehealth()
+    {
+        if (curHealth < 100)
+        {
+            curHealth += 20;//healthBox.health
+            float calchealth = curHealth / maxHealth;
+            setHealth(calchealth);
+            //Destroying();
+        }
+        return image.fillAmount;
+    }
+
+    float decreasehealth()
+    {
+        if (curHealth > 0)
+        {
+            curHealth -= 20;//healthBox.health
+            float calchealth = curHealth / maxHealth;
+            setHealth(calchealth);
+            //Destroying();
+        }
+        return image.fillAmount;
+    }
+
+    void setHealth(float myHealth)
+    {
+        image.fillAmount = myHealth;
+    }
+
+    void Death()
+    {
+        if(curHealth == 0)
+        {
+            Application.LoadLevel(Application.loadedLevel);
+        }
+    }
+
+}

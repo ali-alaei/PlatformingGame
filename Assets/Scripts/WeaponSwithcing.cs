@@ -5,49 +5,34 @@ using UnityEngine;
 public class WeaponSwithcing : MonoBehaviour {
 
     public int selectedWeapon = 0;
+    PlayerShooting playershoot;
 
-    private bool shutgunSelected;
+    [SerializeField]
+    private int isColt;
 
-    public bool ShutgunSelected
+    public int IsColt
     {
         get
         {
-            return shutgunSelected;
+            return isColt;
         }
 
         set
         {
-            shutgunSelected = value;
+            isColt = value;
         }
     }
-
-    private bool coltSelected;
-
-    public bool ColtSelected
-    {
-        get
-        {
-            return coltSelected;
-        }
-
-        set
-        {
-            coltSelected = value;
-        }
-    }
-
-    
-
-
 
     // Use this for initialization
     void Start () {
         SelectWeapon();
+        
 		
 	}
 	
 	// Update is called once per frame
-	void Update () {        
+	void Update () {
+
         int previousSelectedWeapon = selectedWeapon;
 #if UNITY_EDITOR
         SwitchWeapon();
@@ -72,36 +57,45 @@ public class WeaponSwithcing : MonoBehaviour {
         {
             selectedWeapon++;
         }
+
     }
 
 
     void SwitchWeapon()
     {
-        if (InputHandler.Instance.GetChangeWeaponBTn() > 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
             if (selectedWeapon >= transform.childCount - 1)
             {
                 selectedWeapon = 0;
-                
+                //playershoot.bullet = machineGunBullet;
+                IsColt = 0;
             }
             else
             {
                 selectedWeapon++;
+               // playershoot.bullet = coltBullet;
+                IsColt = 1;
             }
         }
-        if (InputHandler.Instance.GetChangeWeaponBTn() < 0f)
+        if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
             if (selectedWeapon <= 0)
             {
                 selectedWeapon = transform.childCount - 1;
+                //playershoot.bullet = coltBullet;
+                IsColt = 1;
             }
             else
             {
                 selectedWeapon--;
+                //playershoot.bullet = machineGunBullet;
+                IsColt = 0;
+
             }
         }
 
-        InputHandler.Instance.ActiveChangeWeaponBtn(0);
+
     }
 
     void SelectWeapon()
@@ -112,18 +106,10 @@ public class WeaponSwithcing : MonoBehaviour {
             if(i == selectedWeapon)
             {
                 weapon.gameObject.SetActive(true);
-                if (i==0)
-                {
-                    shutgunSelected = true;
-                }
-                else if (i==1)
-                {
-                    coltSelected = true;
-                }
             }
             else
             {
-                weapon.gameObject.SetActive(false);               
+                weapon.gameObject.SetActive(false);
             }
             i++;
 

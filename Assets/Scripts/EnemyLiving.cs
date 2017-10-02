@@ -23,10 +23,8 @@ public class EnemyLiving : MonoBehaviour {
 	}
 	void OnTriggerEnter2D(Collider2D other)
 	{
-        Debug.Log("collison");
 		if (other.gameObject.CompareTag ("PlayerBullet")) {
 			lives--;
-            Debug.Log("live--");
 		}
 	}
 }

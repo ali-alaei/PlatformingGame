@@ -7,35 +7,48 @@ using UnityEngine.UI;
 public class ArmouryBox : MonoBehaviour
 {
 
-    public Text countText;
-    private int count;
-    private bool x;
+    public Text coltBulletCountText;
+    public Text machineGunBulletCountText;
+    private bool isColt;
+    private int coltCounter;
+    private int machineGunCounter;
 
     // Use this for initialization
     void Start()
     {
-        count = 5;
-        SetCountText();
+        coltCounter = 5;
+        machineGunCounter = 5;
+        SetCountText(coltBulletCountText , coltCounter);
+        SetCountText(machineGunBulletCountText, machineGunCounter);
     }
 
     void Awake()
     {
-        SetCountText();
+        SetCountText(coltBulletCountText, coltCounter);
+        SetCountText(machineGunBulletCountText, machineGunCounter);
     }
     // Update is called once per frame
     void Update()
     {
-        count = Convert.ToInt32(countText.text);
+        coltCounter = Convert.ToInt32(coltBulletCountText.text);
+        machineGunCounter = Convert.ToInt32(machineGunBulletCountText.text);
     }
 
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && gameObject.CompareTag("ColtArmouryBox"))
         {
             Destroy(gameObject);
-            count += 5;
-            SetCountText();
+            coltCounter += 5;
+            SetCountText(coltBulletCountText, coltCounter);
+
+        }
+        if (other.gameObject.CompareTag("Player") && gameObject.CompareTag("MachineGunArmouryBox"))
+        {
+            Destroy(gameObject);
+            machineGunCounter += 5;
+            SetCountText(machineGunBulletCountText, machineGunCounter);
 
         }
     }
@@ -50,9 +63,9 @@ public class ArmouryBox : MonoBehaviour
 
     }*/
 
-    void SetCountText()
+    void SetCountText(Text txt, int x)
     {
-        countText.text = count.ToString();
+        txt.text = x.ToString();
     }
-    
+
 }
